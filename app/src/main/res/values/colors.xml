@@ -1,7 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <color name="colorPrimary">#826c9922</color>
+    <color name="colorPrimary">#6c9922</color>
     <color name="colorPrimaryDark">#606060</color>
     <color name="colorAccent">#FF4081</color>
     <color name="colorBackColour">#e0ed8d</color>
+    <color name="colorFBSignUpPrimary">#3b5998</color>
+    <color name="colorGoogleSignUpPrimary">#db3236</color>
+    <color name="colorTwitterSignUpPrimary">#1DA1F2</color>
+    <color name="colorWhite">#FFFFFF</color>
 </resources>
