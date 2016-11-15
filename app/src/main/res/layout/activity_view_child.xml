@@ -10,15 +10,12 @@
     android:paddingTop="@dimen/activity_vertical_margin"
     tools:context="au.com.fujitsu.walkbuddies.ViewChild_MB">
 
-    <TextView
-        android:text="TextView"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+    <ListView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
         android:layout_alignParentTop="true"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true"
-        android:layout_marginLeft="11dp"
-        android:layout_marginStart="11dp"
-        android:layout_marginTop="10dp"
-        android:id="@+id/textDisplay" />
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="23dp"
+        android:id="@+id/childList"
+        tools:listheader="Children" />
 </RelativeLayout>
