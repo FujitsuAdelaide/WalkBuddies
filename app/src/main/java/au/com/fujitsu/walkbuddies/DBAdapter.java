@@ -122,6 +122,17 @@ public class DBAdapter {
         return c;
     }
 
+    // Return a row for a child from the database.
+    public Cursor getChildRows(String name) {
+        String where = KEY_NAME + " = " + "'" + name + "'";
+        Cursor c = 	db.query(true, DATABASE_TABLE, ALL_KEYS,
+                where, null, null, null, null, null);
+        if (c != null) {
+            c.moveToFirst();
+        }
+        return c;
+    }
+
     // Get a specific row (by rowId)
     public Cursor getRow(long rowId) {
         String where = KEY_ROWID + "=" + rowId;
