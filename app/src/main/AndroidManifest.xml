@@ -18,21 +18,24 @@
             android:label="@string/title_sign_up">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
+
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
         <activity
             android:name=".LoginActivity"
-            android:label="@string/action_sign_in_short"></activity>
+            android:label="@string/action_sign_in_short" />
         <activity
             android:name=".HomeActivity"
-            android:label="@string/title_home"></activity>
+            android:label="@string/title_home" />
         <activity
             android:name=".MainActivity_MB"
             android:label="@string/title_activity_main"
             android:theme="@style/AppTheme.NoActionBar" />
         <activity android:name=".AddChild_MB" />
-        <activity android:name=".ViewChild_MB"></activity>
+        <activity android:name=".ViewChild_MB" />
+        <activity android:name=".ViewGroupsActivity" />
+        <activity android:name=".StartWalkActivity"></activity>
     </application>
 
 </manifest>

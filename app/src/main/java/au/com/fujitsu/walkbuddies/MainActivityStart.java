@@ -18,7 +18,7 @@ public class MainActivityStart extends AppCompatActivity {
      * @param view
      */
     public void navigateToLogin(View view){
-        Intent intent = new Intent(this,LoginActivity.class);
+        Intent intent = new Intent(this,HomeActivity.class);
         startActivity(intent);
     }
 }

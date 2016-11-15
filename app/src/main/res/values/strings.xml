@@ -29,4 +29,8 @@
     <string name="action_google_sign_up">Sign Up with Google</string>
     <string name="action_twitter_sign_up">Sign Up with Twitter</string>
 
+    <!-- Strings for Home page -->
+    <string name="add_child">Add Child</string>
+
+
 </resources>
