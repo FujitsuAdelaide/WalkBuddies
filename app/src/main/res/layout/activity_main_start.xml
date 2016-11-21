@@ -32,7 +32,7 @@
         android:layout_alignParentTop="true"
         android:layout_centerHorizontal="true"
         android:layout_marginTop="100dp"
-        android:id="@+id/button"
+        android:id="@+id/btnSignupFacebook"
         android:textColor="@color/colorWhite"
         android:background="@color/colorFBSignUpPrimary"/>
 
@@ -41,11 +41,12 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="20dp"
-        android:id="@+id/button2"
-        android:layout_below="@+id/button"
+        android:id="@+id/btnSignupGoogle"
+        android:layout_below="@+id/btnSignupFacebook"
         android:layout_centerHorizontal="true"
         android:textColor="@color/colorWhite"
-        android:background="@color/colorGoogleSignUpPrimary"/>
+        android:background="@color/colorGoogleSignUpPrimary"
+        android:onClick="registerWithGoogle" />
 
     <Button
         android:text="@string/action_twitter_sign_up"
@@ -53,7 +54,7 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="20dp"
         android:id="@+id/button3"
-        android:layout_below="@+id/button2"
+        android:layout_below="@+id/btnSignupGoogle"
         android:layout_centerHorizontal="true"
         android:textColor="@color/colorWhite"
         android:background="@color/colorTwitterSignUpPrimary"/>

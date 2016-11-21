@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="kid_col_heading">KID</string>
+    <string name="group_col_heading">GROUP</string>
+    <string name="status_col_heading">Active</string>
+    <string name="title_kids_walk_groups">Kids Walk Groups</string>
+    <string name="title_register_parent">Register parent</string>
+    <string name="tvParentName">Name*</string>
+    <string name="tvParentAddress">Address*</string>
+    <string name="tvParentMobile">Mobile*</string>
+    <string name="tvParentEmail">Email*</string>
+    <string name="error_empty">Empty</string>
+</resources>
