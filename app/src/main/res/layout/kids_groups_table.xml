@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<TableLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:id="@+id/kids_groups"
+    >
+
+    <TableRow android:id="@+id/rowkg">
+        <TextView
+            android:id="@+id/tvKidNameCol"
+            android:text="Kid"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="30"
+            android:layout_gravity="left"
+            />
+        <TextView
+            android:id="@+id/tvKidGroupCol"
+            android:text="Group"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="50"
+            android:layout_gravity="left"/>
+        <TextView
+            android:id="@+id/tvKidGrpStatusCol"
+            android:text="Active"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="20"
+            android:layout_gravity="center"
+            />
+    </TableRow>
+</TableLayout>

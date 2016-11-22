@@ -12,22 +12,36 @@
         android:icon="@mipmap/ic_launcher"
         android:label="@string/app_name"
         android:supportsRtl="true"
-        android:theme="@style/AppTheme">
+        android:theme="@style/AppTheme"
+        android:name=".WalkBuddiesApplication">
         <activity
-            android:name=".LoginActivity"
-            android:label="@string/app_name">
-            <intent-filter>
+            android:name=".MainActivityStart"
+            android:label="@string/title_sign_up">
+                <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
-
-                <category android:name="android.intent.category.LAUNCHER" />
+                    <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+        <activity
+            android:name=".LoginActivity"
+            android:label="@string/action_sign_in_short" />
+        <activity
+            android:name=".HomeActivity"
+            android:label="@string/title_home" />
         <activity
             android:name=".MainActivity_MB"
             android:label="@string/title_activity_main"
             android:theme="@style/AppTheme.NoActionBar" />
         <activity android:name=".AddChild_MB" />
-        <activity android:name=".ViewChild_MB"></activity>
-    </application>
+        <activity android:name=".ViewChild_MB" />
+        <activity android:name=".ViewGroupsActivity" />
+        <activity android:name=".StartWalkActivity" />
+        <activity
+            android:name=".KidsWalkGroups"
+            android:label="@string/title_kids_walk_groups">
+       </activity>
+       <activity android:name=".RegisterParent"
+           android:label="@string/title_register_parent"></activity>
+   </application>
 
 </manifest>

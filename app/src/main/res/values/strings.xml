@@ -1,5 +1,7 @@
 <resources>
     <string name="app_name">WalkBuddies</string>
+    <string name="title_sign_up">Sign Up</string>
+    <string name="title_home">Home</string>
 
     <!-- Strings related to login -->
     <string name="prompt_email">Email</string>
@@ -19,4 +21,26 @@
     <string name="navigation_drawer_close">Close navigation drawer</string>
 
     <string name="action_settings">Settings</string>
+
+
+    <!-- Strings for Sign Up page -->
+    <string name="dislay_or">Or</string>
+    <string name="action_fb_sign_up">Sign Up with Facebook</string>
+    <string name="action_google_sign_up">Sign Up with Google</string>
+    <string name="action_twitter_sign_up">Sign Up with Twitter</string>
+
+    <!-- Strings for Home page -->
+    <string name="add_child">Add Child</string>
+    <string name="kid_col_heading">KID</string>
+    <string name="group_col_heading">GROUP</string>
+    <string name="status_col_heading">Active</string>
+    <string name="title_kids_walk_groups">Kids Walk Groups</string>
+    <string name="title_register_parent">Register parent</string>
+    <string name="tvParentName">Name*</string>
+    <string name="tvParentAddress">Address*</string>
+    <string name="tvParentMobile">Mobile*</string>
+    <string name="tvParentEmail">Email*</string>
+    <string name="error_empty">Empty</string>
+
+
 </resources>
