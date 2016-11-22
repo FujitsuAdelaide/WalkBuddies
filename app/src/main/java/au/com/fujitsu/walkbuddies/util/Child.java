@@ -6,7 +6,7 @@ package au.com.fujitsu.walkbuddies.util;
 
 public class Child {
 
-    Long   childID;
+    long   childID;
     String childName;
     String childAge;
     String childSchool;
@@ -21,11 +21,11 @@ public class Child {
         this.parent = parent;
     }
 
-    public Long getChildID() {
+    public long getChildID() {
         return childID;
     }
 
-    public void setChildID(Long childID) {
+    public void setChildID(long childID) {
         this.childID = childID;
     }
 

@@ -64,7 +64,7 @@ public class KidsWalkGroups extends AppCompatActivity {
         TableRow tr;
         Integer count = 0;
 
-        DataProvider myKidsData = new DataProvider();
+        DataProvider myKidsData = ((WalkBuddiesApplication) this.getApplication()).getDataProvider();
 
         for (ChildGroup group: myKidsData.getMyKidGroups()) {
             tr = new TableRow(this);

@@ -79,22 +79,23 @@ public class DataProvider {
     public void addDummyData(){
 
         Parent parent1 = new Parent("Iftikhar","0434214119","kamran.iftikhar@gmail.com");
-        parent1.setParentID(getMaxParentID());
-        Parent parent2 = new Parent("Sawhney","0431211212","amit.sawhney@au.fujitsu.com");
-        parent2.setParentID(getMaxParentID());
-        Parent parent3 = new Parent("Sidhu","0431234567","bobby.sidhu@au.fujitsu.com");
-        parent3.setParentID(getMaxParentID());
-
+        parent1.setParentID(getMaxParentID()+1);
         parents.add(parent1);
+        Parent parent2 = new Parent("Sawhney","0431211212","amit.sawhney@au.fujitsu.com");
+        parent2.setParentID(getMaxParentID()+1);
         parents.add(parent2);
+        Parent parent3 = new Parent("Sidhu","0431234567","bobby.sidhu@au.fujitsu.com");
+        parent3.setParentID(getMaxParentID()+1);
         parents.add(parent3);
 
         Child kid1 = new Child("Amit","6","Mawson lakes public school","Superman",parent2);
-        Child kid2 = new Child("Bobby","6","Mawson lakes public school","Superman",parent3);
-        Child kid3 = new Child("Kamran","6","Mawson lakes public school","Superman",parent1);
-
+        kid1.setChildID(getMaxChildID()+1);
         addChild(kid1);
+        Child kid2 = new Child("Bobby","6","Mawson lakes public school","Superman",parent3);
+        kid2.setChildID(getMaxChildID()+1);
         addChild(kid2);
+        Child kid3 = new Child("Kamran","6","Mawson lakes public school","Superman",parent1);
+        kid3.setChildID(getMaxChildID()+1);
         addChild(kid3);
 
         addMyKids(kid1);
@@ -120,7 +121,7 @@ public class DataProvider {
     }
 
     public long getMaxParentID(){
-        long maxParentID = 1;
+        long maxParentID = 0;
         for(Parent p : parents){
             if (p.getParentID() > maxParentID)
                 maxParentID = p.getParentID();
@@ -129,7 +130,7 @@ public class DataProvider {
     }
 
     public long getMaxChildID(){
-        long maxChildID = 1;
+        long maxChildID = 0;
         for(Child c : childs){
             if (c.getChildID() > maxChildID)
                 maxChildID = c.getChildID();

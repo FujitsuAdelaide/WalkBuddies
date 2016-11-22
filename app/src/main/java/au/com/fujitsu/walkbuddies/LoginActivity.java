@@ -335,7 +335,7 @@ public class LoginActivity extends AppCompatActivity implements LoaderCallbacks<
                 //finish();
                 Intent intent = new Intent();
                 intent.setClassName("au.com.fujitsu.walkbuddies",
-                                    "au.com.fujitsu.walkbuddies.MainActivity_MB");
+                                    "au.com.fujitsu.walkbuddies.HomeActivity");
                 startActivity(intent);
 
             } else {

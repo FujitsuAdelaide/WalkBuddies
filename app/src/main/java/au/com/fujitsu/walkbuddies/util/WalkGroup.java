@@ -6,7 +6,7 @@ package au.com.fujitsu.walkbuddies.util;
 
 public class WalkGroup {
 
-    Long   groupID;
+    long   groupID;
     String groupName;
     String suburb;
     String school;
@@ -14,11 +14,11 @@ public class WalkGroup {
     String morningTime;
 
 
-    public Long getGroupID() {
+    public long getGroupID() {
         return groupID;
     }
 
-    public void setGroupID(Long groupID) {
+    public void setGroupID(long groupID) {
         this.groupID = groupID;
     }
 
@@ -68,7 +68,6 @@ public class WalkGroup {
         this.school = school;
         this.dropzoneAddress = dropzonAddress;
         this.morningTime = morningTime;
-        this.groupID = groupID + 1;
     }
 
 
