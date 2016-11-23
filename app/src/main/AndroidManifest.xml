@@ -16,7 +16,8 @@
         android:name=".WalkBuddiesApplication">
         <activity
             android:name=".MainActivityStart"
-            android:label="@string/title_sign_up">
+            android:label="@string/title_activity_main"
+            android:screenOrientation="portrait">
                 <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
                     <category android:name="android.intent.category.LAUNCHER" />
@@ -27,7 +28,8 @@
             android:label="@string/action_sign_in_short" />
         <activity
             android:name=".HomeActivity"
-            android:label="@string/title_home" />
+            android:label="@string/title_home"
+            android:screenOrientation="portrait"/>
         <activity
             android:name=".MainActivity_MB"
             android:label="@string/title_activity_main"
