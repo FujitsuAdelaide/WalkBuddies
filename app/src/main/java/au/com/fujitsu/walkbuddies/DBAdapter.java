@@ -28,7 +28,7 @@ public class DBAdapter {
 
     // DB info: it's name, and the table we are using (just one).
     public static final String DATABASE_NAME = "MyDb";
-    public static final String DATABASE_TABLE = "child";
+    public static final String DATABASE_TABLE = "child_button";
     // Track DB version if a new version of your app changes the format.
     public static final int DATABASE_VERSION = 1;
 
@@ -122,7 +122,7 @@ public class DBAdapter {
         return c;
     }
 
-    // Return a row for a child from the database.
+    // Return a row for a child_button from the database.
     public Cursor getChildRows(String name) {
         String where = KEY_NAME + " = " + "'" + name + "'";
         Cursor c = 	db.query(true, DATABASE_TABLE, ALL_KEYS,

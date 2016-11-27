@@ -53,13 +53,14 @@ public class DataProvider {
         this.myKidGroups = myKidGroups;
     }
 
-    public DataProvider(){
+    protected DataProvider(){
         myKids = new ArrayList();
         myKidGroups = new ArrayList();
         parents = new ArrayList();
         childs = new ArrayList();
-
+        createSchoolList();
     }
+
 
     public void addMyKids(Child kid){
 
@@ -138,4 +139,72 @@ public class DataProvider {
         return maxChildID;
     }
 
+
+    //Alex code
+
+    private static DataProvider instance = null;
+
+    //implementing singleton pattern
+    public static DataProvider getInstance() {
+        if(instance == null) {
+            instance = new DataProvider();
+        }
+        return instance;
+    }
+
+    private static ArrayList<String> schoolList = new ArrayList<String>();
+    private static ArrayList<WalkGroup> walkGroupList = new ArrayList<WalkGroup>();
+
+    private void createSchoolList(){
+        schoolList.add("Belair Primary");
+        schoolList.add("Crafers Primary");
+        schoolList.add("Flinders Park Primary");
+        schoolList.add("Happy Valley Primary");
+        schoolList.add("Henley Beach Primary");
+        schoolList.add("Mawson Lakes School");
+        schoolList.add("Norwood Primary");
+        schoolList.add("Prospect Primary");
+        schoolList.add("Unley Primary");
+        schoolList.add("Vale Park Primary");
+        schoolList.add("Walkerville Primary");
+    }
+
+    public ArrayList<String> getSchoolList() {
+        return schoolList;
+    }
+
+    public ArrayList<WalkGroup> getWalkGrouplList() {
+        return walkGroupList;
+    }
+
+    public void addWalkGroup(String groupName, String suburb, String school, String dropzonAddress, String morningTime) {
+        WalkGroup wg = new WalkGroup(groupName,suburb,school,dropzonAddress,morningTime);
+        walkGroupList.add(wg);
+    }
+
+    public boolean walkGroupExists() {
+        if(walkGroupList.size() > 0){
+            return true;
+        } else {
+            return false;
+        }
+    }
+
+    public boolean walkGroupExists(String wgName){
+        for(WalkGroup wg : walkGroupList) {
+          if(wgName.equalsIgnoreCase(wg.getGroupName())){
+              return true;
+          }
+        }
+        return false;
+    }
+
+    public WalkGroup findWalkGroupByName(String wgName) {
+        for(WalkGroup wg : walkGroupList) {
+            if(wgName.equalsIgnoreCase(wg.getGroupName())){
+                return wg;
+            }
+        }
+        return null;
+    }
 }

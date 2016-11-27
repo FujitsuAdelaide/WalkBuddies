@@ -6,7 +6,7 @@
     <!-- Strings related to login -->
     <string name="prompt_email">Email</string>
     <string name="prompt_password">Password (optional)</string>
-    <string name="action_sign_in">Sign in or register</string>
+    <string name="action_sign_in">Sign in or regist</string>
     <string name="action_sign_in_short">Sign in</string>
     <string name="error_invalid_email">This email address is invalid</string>
     <string name="error_invalid_password">This password is too short</string>
@@ -31,6 +31,7 @@
 
     <!-- Strings for Home page -->
     <string name="add_child">Add Child</string>
+    <string name="view_groups">View Groups</string>
     <string name="kid_col_heading">KID</string>
     <string name="group_col_heading">GROUP</string>
     <string name="status_col_heading">Active</string>
@@ -41,6 +42,16 @@
     <string name="tvParentMobile">Mobile*</string>
     <string name="tvParentEmail">Email*</string>
     <string name="error_empty">Empty</string>
+
+
+    <!-- Strings for Create Walk Group -->
+    <string name="please_create">Please create a walk group</string>
+    <string name="select_school">Select School</string>
+    <string name="wg_name">Enter walk group name</string>
+    <string name="wg_create">Create</string>
+    <string name="view_walk_groups">View Walk Groups</string>
+    <string name="create_walk_group">Create Walk Group</string>
+
 
 
 </resources>

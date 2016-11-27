@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/activity_create_walk_group"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:paddingBottom="@dimen/activity_vertical_margin"
+    android:paddingLeft="@dimen/activity_horizontal_margin"
+    android:paddingRight="@dimen/activity_horizontal_margin"
+    android:paddingTop="@dimen/activity_vertical_margin"
+    tools:context="au.com.fujitsu.walkbuddies.CreateWalkGroupActivity">
+
+    <Spinner
+        android:id="@+id/school_spinner"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="60dp"
+        android:hint="@string/select_school"/>
+
+    <TextView
+        android:text="@string/please_create"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/textView2"
+        android:layout_marginTop="10dp"
+        android:layout_centerHorizontal="true" />
+
+    <EditText
+        android:id="@+id/walk_group_name"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="@string/wg_name"
+        android:inputType="text"
+        android:layout_marginTop="120dp"
+        android:textColor="@color/colorPrimaryDark"
+        android:maxLines="1"/>
+
+    <Button
+        android:id="@+id/create_wg_button"
+        style="?android:textAppearanceSmall"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="190dp"
+        android:text="@string/wg_create"
+        android:background="@color/colorPrimary"
+        android:textColor="@color/colorWhite"
+        android:textStyle="bold"
+        android:onClick="navigateToGroupsViewAfterCreate"/>
+
+</RelativeLayout>

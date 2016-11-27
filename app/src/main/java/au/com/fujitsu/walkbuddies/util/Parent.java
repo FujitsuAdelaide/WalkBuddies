@@ -1,5 +1,7 @@
 package au.com.fujitsu.walkbuddies.util;
 
+import java.util.ArrayList;
+
 /**
  * Created by kamran on 21/11/16.
  */
@@ -11,6 +13,7 @@ public class Parent {
     String parentMobile;
     String parentEmail;
     String parentAddress;
+    private ArrayList<Child> childList;
 
     public Parent(String parentName, String parentMobile, String parentEmail) {
 
@@ -64,6 +67,11 @@ public class Parent {
         this.parentEmail = parentEmail;
     }
 
+    public ArrayList<Child> getChildList() {
+        return childList;
+    }
 
-
+    public void setChildList(ArrayList<Child> childList) {
+        this.childList = childList;
+    }
 }

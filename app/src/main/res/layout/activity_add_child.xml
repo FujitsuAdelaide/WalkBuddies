@@ -33,7 +33,7 @@
         android:layout_marginTop="33dp"
         android:id="@+id/submitBT"
         android:background="@color/colorPrimary"
-        android:textColor="@color/colorPrimaryDark"
+        android:textColor="@color/colorWhite"
         android:onClick="onClick_ViewChild" />
 
     <TextView

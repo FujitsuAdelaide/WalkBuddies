@@ -1,5 +1,7 @@
 package au.com.fujitsu.walkbuddies.util;
 
+import java.util.ArrayList;
+
 /**
  * Created by kamran on 20/11/16.
  */
@@ -12,7 +14,9 @@ public class WalkGroup {
     String school;
     String dropzoneAddress;
     String morningTime;
-
+    private Parent groupAdmin;
+    private ArrayList<Parent> parentList;
+    private ArrayList<Child> childList;
 
     public long getGroupID() {
         return groupID;
@@ -54,6 +58,31 @@ public class WalkGroup {
         this.dropzoneAddress = dropzoneAddress;
     }
 
+    public Parent getGroupAdmin()
+    {
+        return this.groupAdmin;
+    }
+
+    public void setGroupAdmin(Parent groupAdmin) {
+        this.groupAdmin = groupAdmin;
+    }
+
+    public ArrayList<Child> getChildList() {
+        return this.childList;
+    }
+
+    public void setChildList(ArrayList<Child> childList) {
+        this.childList = childList;
+    }
+
+    public ArrayList<Parent> getParentList(){
+        return this.parentList;
+    }
+
+    public void setParentList(ArrayList<Parent> parentList) {
+        this.parentList = parentList;
+    }
+
     public String getMorningTime() {
         return morningTime;
     }
@@ -70,6 +99,8 @@ public class WalkGroup {
         this.morningTime = morningTime;
     }
 
-
-
+    @Override
+    public String toString() {
+        return this.groupName + " - " + this.school;
+    }
 }

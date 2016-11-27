@@ -97,7 +97,7 @@
         android:layout_marginTop="106dp"
         android:id="@+id/btnRegisterParent"
         android:background="@color/colorPrimary"
-        android:textColor="@color/colorPrimaryDark"
+        android:textColor="@color/colorWhite"
         android:onClick="registerParent" />
 
     <TextView
