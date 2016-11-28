@@ -11,30 +11,18 @@
     android:paddingTop="@dimen/activity_vertical_margin"
     android:background="@color/colorBackColour"
     tools:context="au.com.fujitsu.walkbuddies.KidsWalkGroups">
-<!--
-    <TextView
-        android:text="Walk Group"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignTop="@+id/tvKids"
-        android:layout_toRightOf="@+id/tvKids"
-        android:layout_toEndOf="@+id/tvKids"
-        android:layout_marginLeft="92dp"
-        android:layout_marginStart="92dp"
-        android:id="@+id/tvWalkGroup" />
-
-    <TextView
-        android:text="Kids"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginLeft="30dp"
-        android:layout_marginStart="30dp"
-        android:layout_marginTop="15dp"
-        android:id="@+id/tvKids"
-        android:layout_alignParentTop="true"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true" />-->
 
     <include layout="@layout/kids_groups_table"/>
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginBottom="177dp"
+        android:id="@+id/btnAbsentee"
+        android:text="@string/title_btn_absent"
+        android:onClick="absenteeDialog"/>
+
 
 </RelativeLayout>

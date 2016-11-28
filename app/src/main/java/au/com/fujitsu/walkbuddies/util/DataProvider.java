@@ -41,7 +41,7 @@ public class DataProvider {
         return myKids;
     }
 
-    public void setMyKids(ArrayList myKids) {
+    public void setMyKids(ArrayList<Child> myKids) {
         this.myKids = myKids;
     }
 

@@ -10,4 +10,7 @@
     <string name="tvParentMobile">Mobile*</string>
     <string name="tvParentEmail">Email*</string>
     <string name="error_empty">Empty</string>
+    <string name="title_btn_absent">Absent from next walk</string>
+    <string name="title_child_name">Name</string>
+    <string name="title_child_age">Age</string>
 </resources>

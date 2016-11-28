@@ -20,6 +20,7 @@
             android:screenOrientation="portrait">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
+
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
@@ -44,7 +45,7 @@
         <activity android:name=".StartWalkActivity" />
         <activity
             android:name=".KidsWalkGroups"
-            android:label="@string/title_kids_walk_groups"></activity>
+            android:label="@string/title_kids_walk_groups" />
         <activity
             android:name=".RegisterParent"
             android:label="@string/title_register_parent" />
@@ -52,6 +53,7 @@
             android:name=".CreateWalkGroupActivity"
             android:label="@string/create_walk_group"
             android:screenOrientation="portrait" />
+        <activity android:name=".addMyChild"></activity>
     </application>
 
 </manifest>

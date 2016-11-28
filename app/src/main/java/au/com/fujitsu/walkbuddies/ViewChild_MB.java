@@ -16,6 +16,8 @@ import android.content.Intent;
 
 import java.util.ArrayList;
 
+import au.com.fujitsu.walkbuddies.util.DataProvider;
+
 public class ViewChild_MB extends AppCompatActivity {
 
     DBAdapter myDb;
@@ -24,11 +26,13 @@ public class ViewChild_MB extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_view_child);
-        openDB();
+        /*openDB();
         Cursor cursor = myDb.getAllRows();
-        displayRecordSet(cursor);
+        displayRecordSet(cursor);*/
+        DataProvider localDataProvide = ((WalkBuddiesApplication) this.getApplication()).getDataProvider();
+
     }
-    @Override
+/*    @Override
     protected void onDestroy() {
         super.onDestroy();
         closeDB();
@@ -43,7 +47,7 @@ public class ViewChild_MB extends AppCompatActivity {
         if (myDb != null) {
             myDb.close();
         }
-    }
+    }*/
 
     private void addToList(String[] childlist) {
         ListView listView = (ListView) findViewById(R.id.childList);
