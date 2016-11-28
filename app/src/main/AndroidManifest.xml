@@ -44,13 +44,17 @@
         <activity android:name=".StartWalkActivity" />
         <activity
             android:name=".KidsWalkGroups"
-            android:label="@string/title_kids_walk_groups"></activity>
+            android:label="@string/title_kids_walk_groups" />
         <activity
             android:name=".RegisterParent"
             android:label="@string/title_register_parent" />
         <activity
             android:name=".CreateWalkGroupActivity"
             android:label="@string/create_walk_group"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".ViewWalkGroupActivity"
+            android:label="@string/view_walk_group_details"
             android:screenOrientation="portrait" />
     </application>
 

@@ -24,7 +24,7 @@
 
 
     <!-- Strings for Sign Up page -->
-    <string name="dislay_or">Or</string>
+    <string name="dislay_or">or</string>
     <string name="action_fb_sign_up">Sign Up with Facebook</string>
     <string name="action_google_sign_up">Sign Up with Google</string>
     <string name="action_twitter_sign_up">Sign Up with Twitter</string>
@@ -51,7 +51,7 @@
     <string name="wg_create">Create</string>
     <string name="view_walk_groups">View Walk Groups</string>
     <string name="create_walk_group">Create Walk Group</string>
-
+    <string name="view_walk_group_details">View Walk Group Details</string>
 
 
 </resources>

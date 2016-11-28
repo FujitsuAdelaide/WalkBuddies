@@ -1,12 +1,13 @@
 package au.com.fujitsu.walkbuddies.util;
 
 import java.util.ArrayList;
+import android.content.ClipData.Item;
 
 /**
  * Created by kamran on 20/11/16.
  */
 
-public class WalkGroup {
+public class WalkGroup extends Item {
 
     long   groupID;
     String groupName;
@@ -92,6 +93,7 @@ public class WalkGroup {
     }
 
     public WalkGroup(String groupName, String suburb, String school, String dropzonAddress, String morningTime) {
+        super(groupName);
         this.groupName = groupName;
         this.suburb = suburb;
         this.school = school;

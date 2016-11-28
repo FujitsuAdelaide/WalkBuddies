@@ -1,5 +1,6 @@
 package au.com.fujitsu.walkbuddies;
 
+import android.app.ActionBar;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
@@ -23,6 +24,11 @@ public class MainActivityStart extends AppCompatActivity {
      */
     public void navigateToLogin(View view){
         Intent intent = new Intent(this,LoginActivity.class);
+        startActivity(intent);
+    }
+
+    public void navigateToHome(View view){
+        Intent intent = new Intent(this,HomeActivity.class);
         startActivity(intent);
     }
 
