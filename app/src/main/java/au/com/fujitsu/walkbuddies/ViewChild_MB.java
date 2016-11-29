@@ -2,12 +2,19 @@ package au.com.fujitsu.walkbuddies;
 
 import android.content.Context;
 import android.database.Cursor;
+import android.graphics.Color;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
+import android.view.Gravity;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AdapterView;
+import android.widget.Button;
+import android.widget.CheckBox;
+import android.widget.ImageButton;
 import android.widget.ListView;
+import android.widget.TableLayout;
+import android.widget.TableRow;
 import android.widget.TextView;
 import android.widget.ArrayAdapter;
 import android.widget.LinearLayout;
@@ -15,7 +22,12 @@ import android.widget.AbsListView;
 import android.content.Intent;
 
 import java.util.ArrayList;
+import java.util.ListIterator;
+import java.util.Iterator;
 
+
+import au.com.fujitsu.walkbuddies.util.Child;
+import au.com.fujitsu.walkbuddies.util.ChildGroup;
 import au.com.fujitsu.walkbuddies.util.DataProvider;
 
 public class ViewChild_MB extends AppCompatActivity {
@@ -26,108 +38,77 @@ public class ViewChild_MB extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_view_child);
-        /*openDB();
-        Cursor cursor = myDb.getAllRows();
-        displayRecordSet(cursor);*/
-        DataProvider localDataProvide = ((WalkBuddiesApplication) this.getApplication()).getDataProvider();
 
-    }
-/*    @Override
-    protected void onDestroy() {
-        super.onDestroy();
-        closeDB();
+        loadKids();
     }
 
+    private void loadKids(){
+        final TableLayout table = (TableLayout) findViewById(R.id.kids);
+        TableRow tr;
+   //     TableRow tr1= (TableRow)table.findViewById(R.id.rowkg);
+        Integer count = 0;
 
-    private void openDB() {
-        myDb = new DBAdapter(this);
-        myDb.open();
-    }
-    private void closeDB() {
-        if (myDb != null) {
-            myDb.close();
+        DataProvider myKidsData = ((WalkBuddiesApplication) this.getApplication()).getDataProvider();
+
+        for (Child child: myKidsData.getMyKids()) {
+            tr = new TableRow(this);
+
+            tr.setId(100 + count);
+            tr.setLayoutParams(new ViewGroup.LayoutParams(
+                    ViewGroup.LayoutParams.FILL_PARENT,
+                    ViewGroup.LayoutParams.WRAP_CONTENT));
+
+
+            TextView label_Name = new TextView(this);
+            label_Name.setId(200 + count);
+            label_Name.setText(child.getChildName());
+            label_Name.setGravity(Gravity.LEFT);
+
+            tr.addView(label_Name, new TableRow.LayoutParams(0, TableRow.LayoutParams.WRAP_CONTENT, 0.50f));// add the column to the table row here
+
+            TextView label_Group = new TextView(this);
+            label_Group.setId(300 + count);
+            //label_Group.setText("      " + child.getChildAge());
+            label_Group.setText(child.getChildAge());
+            label_Group.setGravity(Gravity.LEFT);
+            tr.addView(label_Group, new TableRow.LayoutParams(0, TableRow.LayoutParams.WRAP_CONTENT, 0.20f));// add the column to the table row here
+
+            ImageButton btnRemove = new ImageButton(this);
+            btnRemove.setImageResource(android.R.drawable.ic_delete);
+            btnRemove.setBackgroundColor(Color.TRANSPARENT);
+
+            btnRemove.setId(400 + count);
+            btnRemove.setTag(child);
+
+            btnRemove.setOnClickListener(new View.OnClickListener() {
+                public void onClick(View v) {
+                    Child child = (Child) v.getTag();
+                    View row = (View) v.getParent();
+                    ViewGroup container = ((ViewGroup)row.getParent());
+                    container.removeView(row);
+                    container.invalidate();
+
+                    deleteChild(child);
+
+                }
+            });
+
+
+            tr.addView(btnRemove, new TableRow.LayoutParams(0, TableRow.LayoutParams.WRAP_CONTENT, 0.30f));// add the column to the table row here
+
+            table.addView(tr, new TableLayout.LayoutParams(TableLayout.LayoutParams.FILL_PARENT, TableLayout.LayoutParams.WRAP_CONTENT));
+
+            count++;
         }
-    }*/
-
-    private void addToList(String[] childlist) {
-        ListView listView = (ListView) findViewById(R.id.childList);
-
-        // listening to single list item on click
-        listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
-            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-
-                // selected item
-                String ref = ((TextView) view).getText().toString();
-
-                Intent intent = new Intent();
-                intent.setClassName("au.com.fujitsu.walkbuddies",
-                        "au.com.fujitsu.walkbuddies.AddChild_MB");
-                intent.putExtra("childName", ref);
-                startActivity(intent);
-            }
-        });
-
-
-        ArrayAdapter<String> itemsAdapter =
-                new ArrayAdapter<String>(this, android.R.layout.simple_list_item_1, childlist);
-
-        /*MyAdapter itemsAdapter =
-                new MyAdapter(this, childlist);*/
-
-        listView.setAdapter(itemsAdapter);
-     }
-
-    // Display an entire recordset to the screen.
-    private void displayRecordSet(Cursor cursor) {
-        ArrayList<String> arrayList = new ArrayList<>();
-
-        // populate the message from the cursor
-
-        // Reset cursor to start, checking to see if there's data:
-        if (cursor.moveToFirst()) {
-            do {
-                // Process the data:
-                int id = cursor.getInt(DBAdapter.COL_ROWID);
-                String name = cursor.getString(DBAdapter.COL_NAME);
-                int age = cursor.getInt(DBAdapter.COL_AGE);
-
-                arrayList.add(name);
-
-            } while(cursor.moveToNext());
-        }
-
-        // Close the cursor to avoid a resource leak.
-        cursor.close();
-
-        String[] childlist = new String[arrayList.size()];
-        childlist = arrayList.toArray(childlist);
-
-        addToList(childlist);
-
     }
 
-    /*
-    public class MyAdapter extends ArrayAdapter<String> {
+    public void navigateToAddChild(View view) {
+        Intent intent = new Intent(this,AddChild_MB.class);
+        startActivity(intent);
+    }
 
-        public MyAdapter(Context context, String[] strings) {
-            super(context, -1, -1, strings);
-        }
-
-        @Override
-        public View getView(int position, View convertView, ViewGroup parent) {
-
-            LinearLayout listLayout = new LinearLayout(ViewChild_MB.this);
-            listLayout.setLayoutParams(new AbsListView.LayoutParams(
-                    AbsListView.LayoutParams.WRAP_CONTENT,
-                    AbsListView.LayoutParams.WRAP_CONTENT));
-
-            TextView listText = new TextView(ViewChild_MB.this);
-            listLayout.addView(listText);
-            listText.setText(super.getItem(position));
-
-            return listLayout;
-        }
-    }*/
-
-
+    private void deleteChild(Child child){
+        DataProvider dp = DataProvider.getInstance();
+        dp.getMyKids().remove(child);
+    }
 }

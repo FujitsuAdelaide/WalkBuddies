@@ -24,7 +24,7 @@
 
 
     <!-- Strings for Sign Up page -->
-    <string name="dislay_or">Or</string>
+    <string name="dislay_or">or</string>
     <string name="action_fb_sign_up">Sign Up with Facebook</string>
     <string name="action_google_sign_up">Sign Up with Google</string>
     <string name="action_twitter_sign_up">Sign Up with Twitter</string>
@@ -42,7 +42,6 @@
     <string name="tvParentMobile">Mobile*</string>
     <string name="tvParentEmail">Email*</string>
     <string name="error_empty">Empty</string>
-    <string name="title_btn_absent">Absent from next walk</string>
 
 
     <!-- Strings for Create Walk Group -->
@@ -52,8 +51,7 @@
     <string name="wg_create">Create</string>
     <string name="view_walk_groups">View Walk Groups</string>
     <string name="create_walk_group">Create Walk Group</string>
-    <string name="title_child_name">Name</string>
-    <string name="title_child_age">Age</string>
+    <string name="view_walk_group_details">View Walk Group Details</string>
 
 
 </resources>

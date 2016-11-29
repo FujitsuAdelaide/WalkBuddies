@@ -7,106 +7,70 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.EditText;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import java.util.ArrayList;
 
-public class AddChild_MB extends AppCompatActivity {
+import au.com.fujitsu.walkbuddies.util.Child;
+import au.com.fujitsu.walkbuddies.util.DataProvider;
+import au.com.fujitsu.walkbuddies.util.Parent;
 
-    DBAdapter myDb;
-    private EditText mNameView;
-    private EditText mAgeView;
+public class AddChild_MB extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_add_child);
 
-        mNameView = (EditText) findViewById(R.id.childNameEdittxt);
-        mAgeView = (EditText) findViewById(R.id.childAgeeditText);
-
-        openDB();
-
-        Intent i = getIntent();
-        // getting attached intent data
-        String childRef = i.getStringExtra("childName");
-
-        if (childRef != null) {
-            // get the reference value from the database
-            displayReference(childRef);
-
-        }
-
-
-
-
-    }
-    // Display a record on the screen.
-    private void displayReference(String childRef) {
-         Cursor cursor = myDb.getChildRows(childRef);
-
-        // populate the message from the cursor
-
-        // Reset cursor to start, checking to see if there's data:
-        if (cursor.moveToFirst()) {
-            do {
-                // Process the data:
-                int id = cursor.getInt(DBAdapter.COL_ROWID);
-                String name = cursor.getString(DBAdapter.COL_NAME);
-                int age = cursor.getInt(DBAdapter.COL_AGE);
-
-                mNameView.setText(name);
-                mAgeView.setText(""+age);
-
-
-            } while(cursor.moveToNext());
-        }
-
-        // Close the cursor to avoid a resource leak.
-        cursor.close();
-
     }
 
-
-
-
-    public void onClick_ViewChild(View v) {
-
-        int age;
+    public void addChild(View v){
         try {
-            age = Integer.parseInt(mAgeView.getText().toString());
-        }catch(ParseException | NumberFormatException e) {
-            age = 0;
-            Toast.makeText(this, "Invalid age entry", Toast.LENGTH_SHORT).show();
-            return;
-        }
-        try {
-            myDb.insertRow(mNameView.getText().toString(), age);
-        } catch(RuntimeException r) {
+            DataProvider localDataProvide = ((WalkBuddiesApplication) this.getApplication()).getDataProvider();
+            if (localDataProvide == null)
+                System.out.println("localDataProvide is null");
+
+
+            Child child = new Child();
+            child.setChildName(((EditText) findViewById(R.id.childNameEdittxt)).getText().toString());
+            child.setChildAge(((EditText) findViewById(R.id.childAgeeditText)).getText().toString());
+            child.setChildID(localDataProvide.getMaxChildID() + 1);
+
+            if(addChildValidations(child)) {
+                localDataProvide.addMyKids(child);
+                System.out.println("WalkBuddiesApplication log: Child added.");
+
+                Intent intent = new Intent(this,ViewChild_MB.class);
+                startActivity(intent);
+            }
+
+        }catch(Exception e){
+            System.out.println("WalkBuddiesApplication log: Child could not added.");
+            e.printStackTrace();
+            Intent intent = new Intent(this,MainActivityStart.class);
+            startActivity(intent);
 
         }
 
-        Intent intent = new Intent();
-        intent.setClassName("au.com.fujitsu.walkbuddies",
-                "au.com.fujitsu.walkbuddies.ViewChild_MB");
-        startActivity(intent);
     }
 
-    private void openDB() {
-        myDb = new DBAdapter(this);
-        myDb.open();
-    }
+    private boolean addChildValidations(Child child){
 
-    @Override
-    protected void onDestroy() {
-        super.onDestroy();
-        closeDB();
-    }
+        boolean result = true;
 
-    private void closeDB() {
-        if (myDb != null) {
-            myDb.close();
+        System.out.println("Child name is " + child.getChildName());
+        if("".equalsIgnoreCase(child.getChildName())) {
+            System.out.println("WalkBuddiesApplication log: Child could not added. Please fix the error.");
+            result = false;
         }
+
+        if("".equalsIgnoreCase(child.getChildAge())) {
+
+            System.out.println("WalkBuddiesApplication log: Parent could not registered. Please fix the error.");
+            result = false;
+        }
+        return result;
     }
 
 }

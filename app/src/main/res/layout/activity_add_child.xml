@@ -22,7 +22,7 @@
         android:id="@+id/childAgetxt" />
 
     <Button
-        android:text="Submit"
+        android:text="Add Child"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_below="@+id/childAgetxt"
@@ -33,8 +33,8 @@
         android:layout_marginTop="33dp"
         android:id="@+id/submitBT"
         android:background="@color/colorPrimary"
-        android:textColor="@color/colorPrimaryDark"
-        android:onClick="onClick_ViewChild" />
+        android:textColor="@color/colorWhite"
+        android:onClick="addChild" />
 
     <TextView
         android:layout_width="wrap_content"

@@ -21,6 +21,10 @@ public class Child {
         this.parent = parent;
     }
 
+    public  Child(){
+
+    }
+
     public long getChildID() {
         return childID;
     }

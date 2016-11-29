@@ -3,6 +3,7 @@ package au.com.fujitsu.walkbuddies;
 import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.text.TextUtils;
 import android.view.View;
 import android.widget.ArrayAdapter;
 import android.widget.EditText;
@@ -28,9 +29,16 @@ public class CreateWalkGroupActivity extends AppCompatActivity {
         DataProvider dp = DataProvider.getInstance();
         EditText et = (EditText) findViewById(R.id.walk_group_name);
         Spinner spinnerSchools = (Spinner) findViewById(R.id.school_spinner);
-        String walkGroupName = spinnerSchools.getSelectedItem().toString();
+        String schoolName = spinnerSchools.getSelectedItem().toString();
+        String walkGroupName = et.getText().toString();
+
+        if(TextUtils.isEmpty(walkGroupName)) {
+            et.setError("Walk Group name cannot be empty");
+            return;
+        }
+
         if (!dp.walkGroupExists(walkGroupName)) {
-            WalkGroup wg = new WalkGroup(et.getText().toString(), "",walkGroupName
+            WalkGroup wg = new WalkGroup(walkGroupName, "",schoolName
                     , "", "");
             dp.getWalkGrouplList().add(wg);
         }
