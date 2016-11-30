@@ -1,14 +1,24 @@
 package au.com.fujitsu.walkbuddies;
 
+import android.app.AlertDialog;
+import android.app.Dialog;
+import android.content.Context;
+import android.content.DialogInterface;
 import android.graphics.Color;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.Gravity;
+import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
 import android.widget.CheckBox;
 import android.widget.TableLayout;
 import android.widget.TableRow;
 import android.widget.TextView;
+import android.view.View.OnClickListener;
+import android.widget.Toast;
+
+import java.util.ArrayList;
 
 import au.com.fujitsu.walkbuddies.util.Child;
 import au.com.fujitsu.walkbuddies.util.ChildGroup;
@@ -16,12 +26,42 @@ import au.com.fujitsu.walkbuddies.util.DataProvider;
 
 public class KidsWalkGroups extends AppCompatActivity {
 
+    final Context context = this;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_kids_walk_groups);
      //   setupTable();
         loadKidsGroups();
+
+   //     Button button = (Button) findViewById(R.id.btnAbsentee);
+
+        // add button listener
+/*        button.setOnClickListener(new OnClickListener() {
+
+            @Override
+            public void onClick(View arg0) {
+
+                // custom dialog
+                final Dialog dialog = new Dialog(context);
+                dialog.setContentView(R.layout.kids_check_list);
+                dialog.setTitle("My Kids");
+
+                Button dialogButton = (Button) dialog.findViewById(R.id.btnDialogOk);
+                // if button is clicked, close the custom dialog
+                dialogButton.setOnClickListener(new OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+                        dialog.dismiss();
+                    }
+                });
+
+                dialog.show();
+            }
+        });*/
+
+
     }
 
     private void setupTable() {
@@ -64,7 +104,7 @@ public class KidsWalkGroups extends AppCompatActivity {
         TableRow tr;
         Integer count = 0;
 
-        DataProvider myKidsData = new DataProvider();
+        DataProvider myKidsData = ((WalkBuddiesApplication) this.getApplication()).getDataProvider();
 
         for (ChildGroup group: myKidsData.getMyKidGroups()) {
             tr = new TableRow(this);
@@ -94,11 +134,86 @@ public class KidsWalkGroups extends AppCompatActivity {
             table.addView(tr);
             count++;
         }
+    }
 
 
+    public void absenteeDialog(View view){
+        AlertDialog.Builder alertDialogBuilder = new AlertDialog.Builder(this);
+        final ArrayList mSelectedItems = new ArrayList();
+        DataProvider mDataProvider = ((WalkBuddiesApplication) this.getApplication()).getDataProvider();
+        ArrayList<Child> myKids = mDataProvider.getMyKids();
+        final String[] ara=new String[myKids.size()];
+        int index = 0;
+        for(Child child: mDataProvider.getMyKids()) {
+            ara[index]= child.getChildName();
+            index++;
+            }
+
+        //alertDialogBuilder.setMessage("Are you sure, You wanted to make decision").setTitle("My Kids");
+     //   alertDialogBuilder.setTitle("Kids to Absent");
+
+        alertDialogBuilder.setTitle("Kids to Absent")
+                // Specify the list array, the items to be selected by default (null for none),
+                // and the listener through which to receive callbacks when items are selected
+                .setMultiChoiceItems(ara, null,
+                        new DialogInterface.OnMultiChoiceClickListener() {
+                            @Override
+                            public void onClick(DialogInterface dialog, int which,
+                                                boolean isChecked) {
+                                if (isChecked) {
+                                    // If the user checked the item, add it to the selected items
+                                    mSelectedItems.add(which);
+                                } else if (mSelectedItems.contains(which)) {
+                                    // Else, if the item is already in the array, remove it
+                                    mSelectedItems.remove(Integer.valueOf(which));
+                                }
+                            }
+                        })
+                // Set the action buttons
+                .setPositiveButton("Ok", new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialog, int id) {
+                        // User clicked OK, so save the mSelectedItems results somewhere
+                        // or return them to the component that opened the dialog
+                        String selectedKids = "";
+                        for(int i = 0; i < mSelectedItems.size() ; i++){
+                            int index = Integer.parseInt(mSelectedItems.get(i).toString());
+                            selectedKids = selectedKids + " " + ara[index];
+                        }
 
 
+                        Toast.makeText(KidsWalkGroups.this,"You clicked Ok button and selected values " + selectedKids,
+                                Toast.LENGTH_LONG).show();
+                    }
+                })
+                .setNegativeButton("Cancel", new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialog, int id) {
+                        Toast.makeText(KidsWalkGroups.this,"You clicked Cancel button",
+                                Toast.LENGTH_LONG).show();
+                    }
+                });
 
+        alertDialogBuilder.create();
+        alertDialogBuilder.show();
 
+/*        alertDialogBuilder.setPositiveButton("Yes",
+                        new DialogInterface.OnClickListener() {
+                            @Override
+                            public void onClick(DialogInterface arg0, int arg1) {
+                                Toast.makeText(KidsWalkGroups.this,"You clicked yes button",
+                                        Toast.LENGTH_LONG).show();
+                            }
+                        });
+
+        alertDialogBuilder.setNegativeButton("Cancel",new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialog, int which) {
+                finish();
+            }
+        });
+
+        AlertDialog alertDialog = alertDialogBuilder.create();
+        alertDialog.show();*/
     }
 }

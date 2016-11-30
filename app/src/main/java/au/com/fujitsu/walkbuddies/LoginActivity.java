@@ -61,6 +61,8 @@ public class LoginActivity extends AppCompatActivity implements LoaderCallbacks<
     private EditText mPasswordView;
     private View mProgressView;
     private View mLoginFormView;
+    private String cs = "alex.bulgaris@au.fujitsu.com";
+    private String pw = "111111";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -81,6 +83,9 @@ public class LoginActivity extends AppCompatActivity implements LoaderCallbacks<
                 return false;
             }
         });
+
+        mEmailView.setText(cs);
+        mPasswordView.setText(pw);
 
         Button mEmailSignInButton = (Button) findViewById(R.id.email_sign_in_button);
         mEmailSignInButton.setOnClickListener(new OnClickListener() {
@@ -335,7 +340,7 @@ public class LoginActivity extends AppCompatActivity implements LoaderCallbacks<
                 //finish();
                 Intent intent = new Intent();
                 intent.setClassName("au.com.fujitsu.walkbuddies",
-                                    "au.com.fujitsu.walkbuddies.MainActivity_MB");
+                                    "au.com.fujitsu.walkbuddies.HomeActivity");
                 startActivity(intent);
 
             } else {

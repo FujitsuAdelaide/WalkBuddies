@@ -19,7 +19,7 @@ public class HomeActivity extends AppCompatActivity {
     }
 
     public void navigateToStartWalk(View view) {
-        Intent intent = new Intent(this,StartWalkActivity.class);
+        Intent intent = new Intent(this,KidsWalkGroups.class);
         startActivity(intent);
     }
 

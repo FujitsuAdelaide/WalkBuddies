@@ -41,7 +41,7 @@ public class DataProvider {
         return myKids;
     }
 
-    public void setMyKids(ArrayList myKids) {
+    public void setMyKids(ArrayList<Child> myKids) {
         this.myKids = myKids;
     }
 
@@ -53,13 +53,14 @@ public class DataProvider {
         this.myKidGroups = myKidGroups;
     }
 
-    public DataProvider(){
+    protected DataProvider(){
         myKids = new ArrayList();
         myKidGroups = new ArrayList();
         parents = new ArrayList();
         childs = new ArrayList();
-
+        createSchoolList();
     }
+
 
     public void addMyKids(Child kid){
 
@@ -79,22 +80,23 @@ public class DataProvider {
     public void addDummyData(){
 
         Parent parent1 = new Parent("Iftikhar","0434214119","kamran.iftikhar@gmail.com");
-        parent1.setParentID(getMaxParentID());
-        Parent parent2 = new Parent("Sawhney","0431211212","amit.sawhney@au.fujitsu.com");
-        parent2.setParentID(getMaxParentID());
-        Parent parent3 = new Parent("Sidhu","0431234567","bobby.sidhu@au.fujitsu.com");
-        parent3.setParentID(getMaxParentID());
-
+        parent1.setParentID(getMaxParentID()+1);
         parents.add(parent1);
+        Parent parent2 = new Parent("Sawhney","0431211212","amit.sawhney@au.fujitsu.com");
+        parent2.setParentID(getMaxParentID()+1);
         parents.add(parent2);
+        Parent parent3 = new Parent("Sidhu","0431234567","bobby.sidhu@au.fujitsu.com");
+        parent3.setParentID(getMaxParentID()+1);
         parents.add(parent3);
 
         Child kid1 = new Child("Amit","6","Mawson lakes public school","Superman",parent2);
-        Child kid2 = new Child("Bobby","6","Mawson lakes public school","Superman",parent3);
-        Child kid3 = new Child("Kamran","6","Mawson lakes public school","Superman",parent1);
-
+        kid1.setChildID(getMaxChildID()+1);
         addChild(kid1);
+        Child kid2 = new Child("Bobby","6","Mawson lakes public school","Superman",parent3);
+        kid2.setChildID(getMaxChildID()+1);
         addChild(kid2);
+        Child kid3 = new Child("Kamran","6","Mawson lakes public school","Superman",parent1);
+        kid3.setChildID(getMaxChildID()+1);
         addChild(kid3);
 
         addMyKids(kid1);
@@ -120,7 +122,7 @@ public class DataProvider {
     }
 
     public long getMaxParentID(){
-        long maxParentID = 1;
+        long maxParentID = 0;
         for(Parent p : parents){
             if (p.getParentID() > maxParentID)
                 maxParentID = p.getParentID();
@@ -129,7 +131,7 @@ public class DataProvider {
     }
 
     public long getMaxChildID(){
-        long maxChildID = 1;
+        long maxChildID = 0;
         for(Child c : childs){
             if (c.getChildID() > maxChildID)
                 maxChildID = c.getChildID();
@@ -137,4 +139,72 @@ public class DataProvider {
         return maxChildID;
     }
 
+
+    //Alex code
+
+    private static DataProvider instance = null;
+
+    //implementing singleton pattern
+    public static DataProvider getInstance() {
+        if(instance == null) {
+            instance = new DataProvider();
+        }
+        return instance;
+    }
+
+    private static ArrayList<String> schoolList = new ArrayList<String>();
+    private static ArrayList<WalkGroup> walkGroupList = new ArrayList<WalkGroup>();
+
+    private void createSchoolList(){
+        schoolList.add("Belair Primary");
+        schoolList.add("Crafers Primary");
+        schoolList.add("Flinders Park Primary");
+        schoolList.add("Happy Valley Primary");
+        schoolList.add("Henley Beach Primary");
+        schoolList.add("Mawson Lakes School");
+        schoolList.add("Norwood Primary");
+        schoolList.add("Prospect Primary");
+        schoolList.add("Unley Primary");
+        schoolList.add("Vale Park Primary");
+        schoolList.add("Walkerville Primary");
+    }
+
+    public ArrayList<String> getSchoolList() {
+        return schoolList;
+    }
+
+    public ArrayList<WalkGroup> getWalkGrouplList() {
+        return walkGroupList;
+    }
+
+    public void addWalkGroup(String groupName, String suburb, String school, String dropzonAddress, String morningTime) {
+        WalkGroup wg = new WalkGroup(groupName,suburb,school,dropzonAddress,morningTime);
+        walkGroupList.add(wg);
+    }
+
+    public boolean walkGroupExists() {
+        if(walkGroupList.size() > 0){
+            return true;
+        } else {
+            return false;
+        }
+    }
+
+    public boolean walkGroupExists(String wgName){
+        for(WalkGroup wg : walkGroupList) {
+          if(wgName.equalsIgnoreCase(wg.getGroupName())){
+              return true;
+          }
+        }
+        return false;
+    }
+
+    public WalkGroup findWalkGroupByName(String wgName) {
+        for(WalkGroup wg : walkGroupList) {
+            if(wgName.equalsIgnoreCase(wg.getGroupName())){
+                return wg;
+            }
+        }
+        return null;
+    }
 }

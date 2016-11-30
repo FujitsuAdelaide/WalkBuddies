@@ -1,24 +1,29 @@
 package au.com.fujitsu.walkbuddies.util;
 
+import java.util.ArrayList;
+import android.content.ClipData.Item;
+
 /**
  * Created by kamran on 20/11/16.
  */
 
-public class WalkGroup {
+public class WalkGroup extends Item {
 
-    Long   groupID;
+    long   groupID;
     String groupName;
     String suburb;
     String school;
     String dropzoneAddress;
     String morningTime;
+    private Parent groupAdmin;
+    private ArrayList<Parent> parentList;
+    private ArrayList<Child> childList;
 
-
-    public Long getGroupID() {
+    public long getGroupID() {
         return groupID;
     }
 
-    public void setGroupID(Long groupID) {
+    public void setGroupID(long groupID) {
         this.groupID = groupID;
     }
 
@@ -54,6 +59,31 @@ public class WalkGroup {
         this.dropzoneAddress = dropzoneAddress;
     }
 
+    public Parent getGroupAdmin()
+    {
+        return this.groupAdmin;
+    }
+
+    public void setGroupAdmin(Parent groupAdmin) {
+        this.groupAdmin = groupAdmin;
+    }
+
+    public ArrayList<Child> getChildList() {
+        return this.childList;
+    }
+
+    public void setChildList(ArrayList<Child> childList) {
+        this.childList = childList;
+    }
+
+    public ArrayList<Parent> getParentList(){
+        return this.parentList;
+    }
+
+    public void setParentList(ArrayList<Parent> parentList) {
+        this.parentList = parentList;
+    }
+
     public String getMorningTime() {
         return morningTime;
     }
@@ -63,14 +93,16 @@ public class WalkGroup {
     }
 
     public WalkGroup(String groupName, String suburb, String school, String dropzonAddress, String morningTime) {
+        super(groupName);
         this.groupName = groupName;
         this.suburb = suburb;
         this.school = school;
         this.dropzoneAddress = dropzonAddress;
         this.morningTime = morningTime;
-        this.groupID = groupID + 1;
     }
 
-
-
+    @Override
+    public String toString() {
+        return this.groupName + " - " + this.school;
+    }
 }
