@@ -52,6 +52,10 @@
     <string name="view_walk_groups">View Walk Groups</string>
     <string name="create_walk_group">Create Walk Group</string>
     <string name="view_walk_group_details">View Walk Group Details</string>
+    <string name="title_btn_add_child">Add Child</string>
+    <string name="title_add_child">Add Child</string>
+    <string name="title_view_childs">View Childs</string>
+    <string name="title_activity_walking_to_school">Walking to School</string>
 
 
 </resources>

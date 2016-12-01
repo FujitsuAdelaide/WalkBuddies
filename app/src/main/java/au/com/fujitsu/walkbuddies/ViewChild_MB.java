@@ -13,6 +13,7 @@ import android.widget.Button;
 import android.widget.CheckBox;
 import android.widget.ImageButton;
 import android.widget.ListView;
+import android.widget.RelativeLayout;
 import android.widget.TableLayout;
 import android.widget.TableRow;
 import android.widget.TextView;
@@ -43,21 +44,50 @@ public class ViewChild_MB extends AppCompatActivity {
     }
 
     private void loadKids(){
-        final TableLayout table = (TableLayout) findViewById(R.id.kids);
+        TableLayout table = (TableLayout) findViewById(R.id.kids);
         TableRow tr;
-   //     TableRow tr1= (TableRow)table.findViewById(R.id.rowkg);
         Integer count = 0;
 
         DataProvider myKidsData = ((WalkBuddiesApplication) this.getApplication()).getDataProvider();
 
+        tr = new TableRow(this);
+        tr.setId(100 + count);
+        tr.setLayoutParams(new ViewGroup.LayoutParams(
+                ViewGroup.LayoutParams.FILL_PARENT,
+                ViewGroup.LayoutParams.WRAP_CONTENT));
+        tr.setBackgroundColor(getResources().getColor(R.color.colorPrimary));
+
+        TextView head_Name = new TextView(this);
+        head_Name.setId(200 + count);
+        head_Name.setText("Name");
+        head_Name.setTextColor(Color.WHITE);
+        head_Name.setGravity(Gravity.LEFT);
+
+        tr.addView(head_Name, new TableRow.LayoutParams(0, TableRow.LayoutParams.WRAP_CONTENT, 0.50f));// add the column to the table row here
+
+        TextView head_Group = new TextView(this);
+        head_Group.setId(300 + count);
+        head_Group.setText("Age");
+        head_Group.setTextColor(Color.WHITE);
+        head_Group.setGravity(Gravity.LEFT);
+        tr.addView(head_Group, new TableRow.LayoutParams(0, TableRow.LayoutParams.WRAP_CONTENT, 0.20f));// add the column to the table row here
+
+        TextView head_Delete = new TextView(this);
+        head_Delete.setId(400 + count);
+        head_Delete.setText("");
+        head_Delete.setTextColor(Color.RED);
+        head_Delete.setGravity(Gravity.RIGHT);
+        tr.addView(head_Delete, new TableRow.LayoutParams(0, TableRow.LayoutParams.WRAP_CONTENT, 0.30f));// add the column to the table row here
+
+        table.addView(tr);
+        count++;
+
         for (Child child: myKidsData.getMyKids()) {
             tr = new TableRow(this);
-
             tr.setId(100 + count);
             tr.setLayoutParams(new ViewGroup.LayoutParams(
                     ViewGroup.LayoutParams.FILL_PARENT,
                     ViewGroup.LayoutParams.WRAP_CONTENT));
-
 
             TextView label_Name = new TextView(this);
             label_Name.setId(200 + count);
@@ -68,36 +98,57 @@ public class ViewChild_MB extends AppCompatActivity {
 
             TextView label_Group = new TextView(this);
             label_Group.setId(300 + count);
-            //label_Group.setText("      " + child.getChildAge());
             label_Group.setText(child.getChildAge());
             label_Group.setGravity(Gravity.LEFT);
-            tr.addView(label_Group, new TableRow.LayoutParams(0, TableRow.LayoutParams.WRAP_CONTENT, 0.20f));// add the column to the table row here
+            tr.addView(label_Group, new TableRow.LayoutParams(0, TableRow.LayoutParams.WRAP_CONTENT, 0.40f));// add the column to the table row here
 
-            ImageButton btnRemove = new ImageButton(this);
-            btnRemove.setImageResource(android.R.drawable.ic_delete);
-            btnRemove.setBackgroundColor(Color.TRANSPARENT);
+            TextView label_Delete = new TextView(this);
+            label_Delete.setTag(child);
 
-            btnRemove.setId(400 + count);
-            btnRemove.setTag(child);
-
-            btnRemove.setOnClickListener(new View.OnClickListener() {
-                public void onClick(View v) {
-                    Child child = (Child) v.getTag();
-                    View row = (View) v.getParent();
-                    ViewGroup container = ((ViewGroup)row.getParent());
+            label_Delete.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View view) {
+                    Child child = (Child) view.getTag();
+                    View row = (View) view.getParent();
+                    ViewGroup container = (ViewGroup)row.getParent();
                     container.removeView(row);
                     container.invalidate();
 
-                    deleteChild(child);
-
+                    DataProvider dp = DataProvider.getInstance();
+                    dp.getMyKids().remove(child);
                 }
             });
+            label_Delete.setId(400 + count);
+            label_Delete.setText("X");
+            label_Delete.setTextColor(Color.RED);
+            label_Delete.setGravity(Gravity.RIGHT);
+            tr.addView(label_Delete, new TableRow.LayoutParams(0, TableRow.LayoutParams.WRAP_CONTENT, 0.10f));// add the column to the table row here
+
+/*
+
+            ImageButton btnRemove = new ImageButton(this);
+          //  Button btnRemove = new Button(this);
+            btnRemove.requestLayout();
+            btnRemove.setImageResource(android.R.drawable.ic_delete);
+          //  btnRemove.setBackgroundColor(Color.TRANSPARENT);
+
+            btnRemove.setId(400 + count);
+            TableRow.LayoutParams params = new TableRow.LayoutParams(200, 200);
 
 
-            tr.addView(btnRemove, new TableRow.LayoutParams(0, TableRow.LayoutParams.WRAP_CONTENT, 0.30f));// add the column to the table row here
+//setting margins around imageimageview
+            //params.setMargins(10, 10, 10, 10); //left, top, right, bottom
 
-            table.addView(tr, new TableLayout.LayoutParams(TableLayout.LayoutParams.FILL_PARENT, TableLayout.LayoutParams.WRAP_CONTENT));
+//adding attributes to the imageview
+            btnRemove.setLayoutParams(params);
 
+            tr.addView(btnRemove);
+*/
+
+
+            //tr.addView(btnRemove, null, 0.30f));// add the column to the table row here
+
+            table.addView(tr);
             count++;
         }
     }
@@ -105,10 +156,5 @@ public class ViewChild_MB extends AppCompatActivity {
     public void navigateToAddChild(View view) {
         Intent intent = new Intent(this,AddChild_MB.class);
         startActivity(intent);
-    }
-
-    private void deleteChild(Child child){
-        DataProvider dp = DataProvider.getInstance();
-        dp.getMyKids().remove(child);
     }
 }

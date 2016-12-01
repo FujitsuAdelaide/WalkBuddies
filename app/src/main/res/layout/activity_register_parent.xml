@@ -87,17 +87,13 @@
 
     <Button
         android:text="Register"
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_below="@+id/edtParentEmail"
-        android:layout_alignLeft="@+id/edtParentEmail"
-        android:layout_alignStart="@+id/edtParentEmail"
-        android:layout_marginLeft="9dp"
-        android:layout_marginStart="9dp"
+
         android:layout_marginTop="106dp"
         android:id="@+id/btnRegisterParent"
-        android:background="@color/colorPrimary"
-        android:textColor="@color/colorWhite"
+        android:background="@drawable/buddies_button_bg"
         android:onClick="registerParent" />
 
     <TextView

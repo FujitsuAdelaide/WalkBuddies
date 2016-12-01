@@ -6,29 +6,29 @@
     android:id="@+id/kids"
     android:background="@color/colorBackColour"
     >
+    <!--
+        <TableRow android:id="@+id/rowkg">
+            <TextView
+                android:id="@+id/tvKidNameCol"
+                android:text="Child"
+                android:layout_height="wrap_content"
+                android:layout_weight="50"
+                android:layout_gravity="left"
+                />
+            <TextView
+                android:id="@+id/tvKidAgeCol"
+                android:text="Age"
+                      android:layout_height="wrap_content"
+                      android:layout_weight="50"
+                      android:layout_gravity="left"/>
 
-    <TableRow android:id="@+id/rowkg">
-        <TextView
-            android:id="@+id/tvKidNameCol"
-            android:text="Child"
-            android:layout_height="wrap_content"
-            android:layout_weight="50"
-            android:layout_gravity="left"
-            />
-        <TextView
-            android:id="@+id/tvKidAgeCol"
-            android:text="Age"
-                  android:layout_height="wrap_content"
-                  android:layout_weight="50"
-                  android:layout_gravity="left"/>
-<!--
-              <ImageButton
-                  android:layout_height="wrap_content"
-                  app:srcCompat="@android:drawable/ic_delete"
-                  android:id="@+id/removeChild"
-                  android:background="@color/colorBackColour"
-                  android:layout_weight="30"/>
--->
+                  <ImageButton
+                      android:layout_height="wrap_content"
+                      app:srcCompat="@android:drawable/ic_delete"
+                      android:id="@+id/removeChild"
+                      android:background="@color/colorBackColour"
+                      android:layout_weight="30"/>
 
-          </TableRow>
+
+          </TableRow>-->
       </TableLayout>

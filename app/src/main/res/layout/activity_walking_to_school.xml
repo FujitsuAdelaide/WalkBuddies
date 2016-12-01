@@ -1,0 +1,106 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="@color/colorBackColour" >
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <Button
+            android:id="@+id/sydney"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:onClick="onGoToSydney"
+            android:layout_weight="0.5"
+            android:text="Go to Drop zone"
+            android:background="@drawable/map_button_bg"
+            android:textStyle="bold"
+
+            android:layout_margin="10dp"/>
+
+        <Button
+            android:id="@+id/bondi"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:onClick="onGoToBondi"
+            android:layout_weight="0.5"
+            android:text="Go to School"
+            android:background="@drawable/map_button_bg"
+            android:textStyle="bold"
+            android:layout_margin="10dp"/>
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_gravity="left"
+            android:orientation="horizontal">
+
+            <Button
+                android:id="@+id/zoom_in"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:minWidth="48dp"
+                android:onClick="onZoomIn"
+                android:text="In"
+                android:background="@drawable/zoom_button_bg"
+                android:textStyle="bold"
+                android:layout_margin="5dp"/>
+
+            <Button
+                android:id="@+id/zoom_out"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:minWidth="48dp"
+                android:onClick="onZoomOut"
+                android:text="Out"
+                android:background="@drawable/zoom_button_bg"
+                android:textStyle="bold"
+                android:layout_margin="5dp"/>
+        </LinearLayout>
+
+        <LinearLayout
+            android:orientation="horizontal"
+            android:layout_width="wrap_content"
+            android:layout_height="fill_parent"
+            android:layout_gravity="right">
+
+            <Button
+                android:id="@+id/tilt_more"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:minWidth="48dp"
+                android:text="Tilt +"
+                android:onClick="onTiltMore"
+                android:background="@drawable/map_button_bg"
+                android:textStyle="bold"
+                android:layout_margin="5dp"/>
+
+            <Button
+                android:id="@+id/tilt_less"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:minWidth="48dp"
+                android:text="Tilt -"
+                android:onClick="onTiltLess"
+                android:background="@drawable/map_button_bg"
+                android:textStyle="bold"
+                android:layout_margin="5dp"/>
+        </LinearLayout>
+    </LinearLayout>
+
+<fragment xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:map="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/map"
+    android:name="com.google.android.gms.maps.SupportMapFragment"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="au.com.fujitsu.walkbuddies.WalkingToSchool" />
+</LinearLayout>
