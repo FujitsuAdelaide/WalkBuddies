@@ -115,6 +115,20 @@ public class DataProvider {
         addChildGroup(group2);
         addChildGroup(group3);
 
+        //Alex code
+        othersWalkGroupList = new ArrayList<WalkGroup>();
+        WalkGroup wg1 = new WalkGroup("The Walkers","5050","Belair Primary","","");
+        Parent p1 = new Parent("Simon","0404041010","simon@email.com");
+        wg1.setGroupAdmin(p1);
+        ArrayList<Child> cl1 = new ArrayList<Child>();
+        cl1.add(new Child("Orson","10","Belair Primary","Thomas The Traing",p1));
+        cl1.add(new Child("John","10","Belair Primary","Octonauts",p1));
+        cl1.add(new Child("Kiara","10","Belair Primary","Chuggington",p1));
+        wg1.setChildList(cl1);
+        othersWalkGroupList.add(wg1);
+
+        parentSelf = new Parent("Alex Bulgaris","0404040808","alex_bulgaris@email.com");
+
     }
 
     public void addChildGroup(ChildGroup group){
@@ -154,8 +168,11 @@ public class DataProvider {
 
     private static ArrayList<String> schoolList = new ArrayList<String>();
     private static ArrayList<WalkGroup> walkGroupList = new ArrayList<WalkGroup>();
+    private static ArrayList<WalkGroup> othersWalkGroupList = new ArrayList<WalkGroup>();
+    private  static Parent parentSelf = null;
 
     private void createSchoolList(){
+        schoolList.add("Select School...");
         schoolList.add("Belair Primary");
         schoolList.add("Crafers Primary");
         schoolList.add("Flinders Park Primary");
@@ -177,6 +194,12 @@ public class DataProvider {
         return walkGroupList;
     }
 
+    public ArrayList<WalkGroup> getOthersWalkGrouplList() {
+        return othersWalkGroupList;
+    }
+
+    public Parent getParentSelf() { return parentSelf; }
+
     public void addWalkGroup(String groupName, String suburb, String school, String dropzonAddress, String morningTime) {
         WalkGroup wg = new WalkGroup(groupName,suburb,school,dropzonAddress,morningTime);
         walkGroupList.add(wg);
@@ -197,6 +220,23 @@ public class DataProvider {
           }
         }
         return false;
+    }
+
+    public ArrayList<WalkGroup> findOtherWalkGroupsBySchool(String school) {
+        ArrayList<WalkGroup> wgl = new ArrayList<WalkGroup>();
+        for(WalkGroup wg : othersWalkGroupList) {
+            if(school.equalsIgnoreCase(wg.getSchool())){
+                wgl.add(wg);
+            }
+        }
+
+        return wgl;
+    }
+
+    public void joinWalkGroup(WalkGroup wg) {
+        if(!walkGroupExists(wg.groupName)){
+            walkGroupList.add(wg);
+        }
     }
 
     public WalkGroup findWalkGroupByName(String wgName) {

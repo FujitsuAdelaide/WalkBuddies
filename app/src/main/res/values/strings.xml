@@ -45,17 +45,26 @@
 
 
     <!-- Strings for Create Walk Group -->
-    <string name="please_create">Please create a walk group</string>
+    <string name="please_create">Please create a Walk Group</string>
+    <string name="please_join">Click a Walk Group to Join</string>
     <string name="select_school">Select School</string>
+    <string name="please_select_search">Please select School and click Search</string>
     <string name="wg_name">Enter walk group name</string>
     <string name="wg_create">Create</string>
+    <string name="wg_join">Join</string>
+    <string name="wg_search">Search</string>
     <string name="view_walk_groups">View Walk Groups</string>
     <string name="create_walk_group">Create Walk Group</string>
     <string name="view_walk_group_details">View Walk Group Details</string>
+    <string name="search_walk_group_long">Join existing Walk Groups</string>
+    <string name="join_walk_group_title">Join Walk Group</string>
     <string name="title_btn_add_child">Add Child</string>
     <string name="title_add_child">Add Child</string>
     <string name="title_view_childs">View Childs</string>
     <string name="title_activity_walking_to_school">Walking to School</string>
+    <string name="title_child_name">Name</string>
+    <string name="title_child_age">Age</string>
+    <string name="title_btn_absent">Absent from next walk</string>
 
 
 </resources>

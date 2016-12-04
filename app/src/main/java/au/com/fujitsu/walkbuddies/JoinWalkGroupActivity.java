@@ -12,16 +12,19 @@ import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ImageButton;
 import android.widget.ListView;
-import au.com.fujitsu.walkbuddies.util.WalkGroupListAdapter;
+
+import java.util.ArrayList;
+
 import au.com.fujitsu.walkbuddies.util.DataProvider;
 import au.com.fujitsu.walkbuddies.util.WalkGroup;
+import au.com.fujitsu.walkbuddies.util.WalkGroupListAdapter;
 
-public class ViewGroupsActivity extends AppCompatActivity {
+public class JoinWalkGroupActivity extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_view_groups);
+        setContentView(R.layout.activity_join_walk_group);
 
         Toolbar toolbar;
         toolbar = (Toolbar)findViewById(R.id.main_top_toolbar);
@@ -47,21 +50,22 @@ public class ViewGroupsActivity extends AppCompatActivity {
             });
         }
 
+        String schoolName = getIntent().getExtras().get("SCHOOL_NAME").toString();
         DataProvider dp = DataProvider.getInstance();
+
+        ArrayList<WalkGroup> wgl = dp.findOtherWalkGroupsBySchool(schoolName);
+
         //If there are no walk groups redirect to create walk group activity
-        if(!dp.walkGroupExists()) {
-            Intent intent = new Intent(this,CreateWalkGroupActivity.class);
-            startActivity(intent);
-            finish();
-        } else {
-            ListView lv = (ListView)findViewById(R.id.walk_group_list);
+        if(wgl.size() >= 1) {
+            ListView lv = (ListView)findViewById(R.id.join_group_list);
             WalkGroupListAdapter adapter = new WalkGroupListAdapter(
-                    this, android.R.layout.simple_list_item_1, dp.getWalkGrouplList());
+                    this, android.R.layout.simple_list_item_1, wgl);
             lv.setAdapter(adapter);
             lv.setOnItemClickListener(new AdapterView.OnItemClickListener() {
                 @Override
                 public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
                     WalkGroup wgAtPos = (WalkGroup) adapterView.getItemAtPosition(i);
+                    DataProvider.getInstance().joinWalkGroup(wgAtPos);
                     Intent intent = new Intent(getBaseContext(),ViewWalkGroupActivity.class);
                     //Pass in Walk Group Name as a Param for the next activity
                     Bundle bundle = new Bundle();
@@ -70,17 +74,12 @@ public class ViewGroupsActivity extends AppCompatActivity {
                     startActivity(intent);
                 }
             });
+        } else {
+            Intent intent = new Intent(this,SearchWalkGroupsActivity.class);
+            Bundle bundle = new Bundle();
+            bundle.putString("ERROR_MSG", "No walk groups found for: ");
+            intent.putExtras(bundle);
+            startActivity(intent);
         }
     }
-
-    public void navigateToCreateGroup(View view){
-        Intent intent = new Intent(this,CreateWalkGroupActivity.class);
-        startActivity(intent);
-    }
-
-    public void navigateToSearchWalkGroups(View view){
-        Intent intent = new Intent(this,SearchWalkGroupsActivity.class);
-        startActivity(intent);
-    }
-
 }

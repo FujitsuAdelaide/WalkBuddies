@@ -1,10 +1,17 @@
 package au.com.fujitsu.walkbuddies;
 
 import android.app.ActionBar;
+import android.graphics.Color;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.support.v7.widget.Toolbar;
+import android.text.Spannable;
+import android.text.SpannableString;
+import android.text.style.ForegroundColorSpan;
 import android.view.View;
 import android.content.Intent;
+import android.widget.ImageButton;
+
 import au.com.fujitsu.walkbuddies.util.DataProvider;
 
 public class MainActivityStart extends AppCompatActivity {
@@ -16,6 +23,30 @@ public class MainActivityStart extends AppCompatActivity {
         DataProvider dp = DataProvider.getInstance();
         dp.addDummyData();
         ((WalkBuddiesApplication) this.getApplication()).setDataProvider(dp);
+
+        Toolbar toolbar;
+        toolbar = (Toolbar)findViewById(R.id.main_top_toolbar);
+
+        setSupportActionBar(toolbar);
+        if (getSupportActionBar() != null) {
+            getSupportActionBar().setDisplayShowHomeEnabled(true);
+            getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+            getSupportActionBar().setHomeButtonEnabled(true);
+            toolbar.setNavigationIcon(R.drawable.hamb);
+            String title = "         "+toolbar.getTitle().toString();
+            SpannableString s = new SpannableString(title);
+            s.setSpan(new ForegroundColorSpan(Color.WHITE), 0, title.length(), Spannable.SPAN_EXCLUSIVE_EXCLUSIVE);
+            getSupportActionBar().setTitle(s);
+
+            ImageButton settingsButton = (ImageButton) findViewById(R.id.toolbar_home_button);
+            settingsButton.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View view) {
+                    Intent intent = new Intent(getBaseContext(),HomeActivity.class);
+                    startActivity(intent);
+                }
+            });
+        }
     }
 
     /**

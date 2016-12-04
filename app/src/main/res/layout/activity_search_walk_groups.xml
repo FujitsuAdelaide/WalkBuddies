@@ -1,14 +1,15 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/activity_view_groups"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical"
     android:paddingBottom="0dp"
     android:paddingLeft="0dp"
     android:paddingRight="0dp"
     android:paddingTop="0dp"
-    tools:context="au.com.fujitsu.walkbuddies.CreateWalkGroupActivity"
+    android:orientation="vertical"
+    tools:context="au.com.fujitsu.walkbuddies.SearchWalkGroupsActivity"
     android:background="@color/colorBackColour">
 
     <android.support.v7.widget.Toolbar
@@ -17,7 +18,7 @@
         android:layout_width="fill_parent"
         android:layout_height="50dp"
         android:layout_marginTop="0dp"
-        android:title="@string/title_activity_main"
+        android:title="@string/join_walk_group_title"
         android:background="@color/colorPrimary">
 
         <ImageButton
@@ -30,7 +31,7 @@
 
     <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
         xmlns:tools="http://schemas.android.com/tools"
-        android:id="@+id/activity_create_walk_group"
+        android:id="@+id/activity_join_walk_group"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:paddingBottom="@dimen/activity_vertical_margin"
@@ -39,37 +40,23 @@
         android:paddingTop="@dimen/activity_vertical_margin">
 
         <TextView
-            android:text="@string/please_create"
+            android:text="@string/please_select_search"
             android:layout_width="fill_parent"
             android:layout_height="wrap_content"
-            android:id="@+id/textView2"
+            android:id="@+id/textViewJoin1"
             android:layout_alignParentTop="true"
-            android:layout_weight="1"
             android:layout_marginBottom="10dp"/>
 
         <Spinner
-            android:id="@+id/school_spinner"
+            android:id="@+id/school_spinner2"
             android:layout_width="fill_parent"
             android:layout_height="wrap_content"
-            android:layout_below="@+id/textView2"
+            android:layout_below="@+id/textViewJoin1"
             android:background="@drawable/bg"
             android:hint="@string/select_school"
-            android:layout_weight="1"
             android:layout_marginTop="10dp"
             android:layout_marginBottom="10dp"/>
 
-        <EditText
-            android:id="@+id/walk_group_name"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:hint="@string/wg_name"
-            android:inputType="text"
-            android:layout_below="@+id/school_spinner"
-            android:textColor="@color/colorPrimaryDark"
-            android:maxLines="1"
-            android:layout_weight="1"
-            android:layout_marginTop="10dp"
-            android:layout_marginBottom="10dp"/>
 
         <Button
             android:id="@+id/create_wg_button2"
@@ -77,48 +64,20 @@
             android:textStyle="bold"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_below="@+id/walk_group_name"
-            android:text="@string/wg_create"
-            android:layout_weight="1"
+            android:layout_below="@+id/school_spinner2"
+            android:text="@string/wg_search"
             android:layout_marginTop="10dp"
             android:background="@color/colorPrimary"
             android:textColor="@color/colorWhite"
-            android:onClick="navigateToGroupsViewAfterCreate"/>
-
-
-        <TextView
-            android:id="@+id/or_text2"
-            android:text="@string/dislay_or"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_below="@+id/create_wg_button2"
-            android:layout_marginTop="40dp"
-            android:layout_centerHorizontal="true"
-            android:textStyle="bold"
-            android:textSize="32sp"
-            android:textAlignment="center" />
-
+            android:onClick="navigateToJoinGroupsAfterSearch"/>
 
         <TextView
-            android:text="@string/search_walk_group_long"
+            android:text=""
             android:layout_width="fill_parent"
             android:layout_height="wrap_content"
-            android:id="@+id/textView3"
-            android:layout_below="@+id/or_text2"
-            android:layout_marginTop="30dp"/>
-
-        <Button
-            android:id="@+id/join_wg_button2"
-            style="?android:textAppearanceSmall"
-            android:textStyle="bold"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_below="@+id/textView3"
-            android:text="@string/wg_join"
-            android:layout_marginTop="10dp"
-            android:background="@color/colorPrimary"
-            android:textColor="@color/colorWhite"
-            android:onClick="navigateToSearchWalkGroups"/>
+            android:id="@+id/textViewError1"
+            android:layout_below="@+id/create_wg_button2"
+            android:layout_marginTop="10dp"/>
 
     </RelativeLayout>
 </LinearLayout>

@@ -1,87 +1,123 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
-    android:id="@+id/activity_main"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:gravity="center_horizontal"
     android:orientation="vertical"
-    android:paddingBottom="@dimen/activity_vertical_margin"
-    android:paddingLeft="@dimen/activity_horizontal_margin"
-    android:paddingRight="@dimen/activity_horizontal_margin"
-    android:paddingTop="@dimen/activity_vertical_margin"
+    android:paddingBottom="0dp"
+    android:paddingLeft="0dp"
+    android:paddingRight="0dp"
+    android:paddingTop="0dp"
     tools:context="au.com.fujitsu.walkbuddies.MainActivityStart"
     android:background="@color/colorBackColour">
 
-    <TextView
-        android:text=""
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignParentTop="true"
-        android:layout_centerHorizontal="true"
-        android:textStyle="bold"
-        android:textSize="32sp"
-        android:textAlignment="center"
-        android:layout_marginTop="10dp"
-        android:id="@+id/sign_up_title_icon"
-        android:background="@drawable/logo" />
+    <android.support.v7.widget.Toolbar
+        android:id="@+id/main_top_toolbar"
+        android:minHeight="?attr/actionBarSize"
+        android:layout_width="fill_parent"
+        android:layout_height="50dp"
+        android:layout_marginTop="0dp"
+        android:title="@string/title_activity_main"
+        android:background="@color/colorPrimary">
 
-    <Button
-        android:text="@string/action_fb_sign_up"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_alignParentTop="true"
-        android:layout_centerHorizontal="true"
-        android:layout_marginTop="120dp"
-        android:id="@+id/btnSignupFacebook"
-        android:textColor="@color/colorWhite"
-        android:background="@color/colorFBSignUpPrimary"/>
+        <ImageButton
+            android:id="@+id/toolbar_home_button"
+            android:layout_height="wrap_content"
+            android:layout_width="wrap_content"
+            android:layout_gravity="right"
+            android:background="@drawable/home_icon" />
+    </android.support.v7.widget.Toolbar>
 
-    <Button
-        android:text="@string/action_google_sign_up"
-        android:layout_width="match_parent"
+    <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:tools="http://schemas.android.com/tools"
+        android:id="@+id/activity_main"
+        android:layout_width="fill_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="20dp"
-        android:id="@+id/btnSignupGoogle"
-        android:layout_below="@+id/btnSignupFacebook"
-        android:layout_centerHorizontal="true"
-        android:textColor="@color/colorWhite"
-        android:background="@color/colorGoogleSignUpPrimary"
-        android:onClick="registerWithGoogle" />
+        android:gravity="center_horizontal"
+        android:orientation="vertical"
+        android:paddingBottom="32dp"
+        android:paddingLeft="@dimen/activity_horizontal_margin"
+        android:paddingRight="@dimen/activity_horizontal_margin"
+        android:paddingTop="@dimen/activity_vertical_margin">
 
-    <Button
-        android:text="@string/action_twitter_sign_up"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="20dp"
-        android:id="@+id/button3"
-        android:layout_below="@+id/btnSignupGoogle"
-        android:layout_centerHorizontal="true"
-        android:textColor="@color/colorWhite"
-        android:background="@color/colorTwitterSignUpPrimary"/>
+        <TextView
+            android:id="@+id/sign_up_title_icon"
+            android:text=""
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentTop="true"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="15dp"
+            android:textStyle="bold"
+            android:textSize="32sp"
+            android:textAlignment="center"
+            android:background="@drawable/logo" />
 
-    <TextView
-        android:text="@string/dislay_or"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_above="@+id/button4"
-        android:layout_centerHorizontal="true"
-        android:textStyle="bold"
-        android:textSize="32sp"
-        android:textAlignment="center"
-        android:layout_marginBottom="25dp"
-        android:id="@+id/sign_up_text1" />
+        <Button
+            android:id="@+id/btnSignupFacebook"
+            android:text="@string/action_fb_sign_up"
+            style="?android:textAppearanceSmall"
+            android:textStyle="bold"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"
+            android:layout_below="@+id/sign_up_title_icon"
+            android:layout_marginTop="20dp"
+            android:textColor="@color/colorWhite"
+            android:background="@color/colorFBSignUpPrimary"/>
 
-    <Button
-        android:text="@string/action_sign_in_short"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_alignParentBottom="true"
-        android:layout_centerHorizontal="true"
-        android:layout_marginBottom="40dp"
-        android:id="@+id/button4"
-        android:background="@color/colorPrimary"
-        android:textColor="@color/colorWhite"
-        android:onClick="navigateToLogin"/>
+        <Button
+            android:id="@+id/btnSignupGoogle"
+            android:text="@string/action_google_sign_up"
+            style="?android:textAppearanceSmall"
+            android:textStyle="bold"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/btnSignupFacebook"
+            android:layout_marginTop="20dp"
+            android:layout_centerHorizontal="true"
+            android:textColor="@color/colorWhite"
+            android:background="@color/colorGoogleSignUpPrimary"
+            android:onClick="registerWithGoogle" />
 
-</RelativeLayout>
+        <Button
+            android:id="@+id/btnSignUpTwitter"
+            android:text="@string/action_twitter_sign_up"
+            style="?android:textAppearanceSmall"
+            android:textStyle="bold"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/btnSignupGoogle"
+            android:layout_marginTop="20dp"
+            android:layout_centerHorizontal="true"
+            android:textColor="@color/colorWhite"
+            android:background="@color/colorTwitterSignUpPrimary"/>
+
+        <TextView
+            android:id="@+id/sign_up_text1"
+            android:text="@string/dislay_or"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/btnSignUpTwitter"
+            android:layout_marginTop="30dp"
+            android:layout_centerHorizontal="true"
+            android:textStyle="bold"
+            android:textSize="32sp"
+            android:textAlignment="center" />
+
+        <Button
+            android:id="@+id/button4"
+            android:text="@string/action_sign_in_short"
+            style="?android:textAppearanceSmall"
+            android:textStyle="bold"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/sign_up_text1"
+            android:layout_marginTop="30dp"
+            android:layout_centerHorizontal="true"
+            android:background="@color/colorPrimary"
+            android:textColor="@color/colorWhite"
+            android:onClick="navigateToLogin"/>
+
+    </RelativeLayout>
+</LinearLayout>

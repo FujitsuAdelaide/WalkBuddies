@@ -10,6 +10,23 @@
     tools:context="au.com.fujitsu.walkbuddies.HomeActivity"
     android:background="@color/colorBackColour">
 
+    <android.support.v7.widget.Toolbar
+        android:id="@+id/main_top_toolbar"
+        android:minHeight="?attr/actionBarSize"
+        android:layout_width="fill_parent"
+        android:layout_height="50dp"
+        android:layout_marginTop="0dp"
+        android:title="@string/title_home"
+        android:background="@color/colorPrimary">
+
+        <ImageButton
+            android:id="@+id/toolbar_home_button"
+            android:layout_height="wrap_content"
+            android:layout_width="wrap_content"
+            android:layout_gravity="right"
+            android:background="@drawable/home_icon" />
+    </android.support.v7.widget.Toolbar>
+
     <TextView
         android:text=""
         android:layout_width="wrap_content"
@@ -19,7 +36,7 @@
         android:textStyle="bold"
         android:textSize="32sp"
         android:textAlignment="center"
-        android:layout_marginTop="10dp"
+        android:layout_marginTop="60dp"
         android:id="@+id/home_title_icon"
         android:background="@drawable/logo"/>
 
@@ -27,7 +44,7 @@
         android:id="@+id/tableLayout1"
         android:layout_width="fill_parent"
         android:layout_height="fill_parent"
-        android:layout_marginTop="300dp"
+        android:layout_marginTop="360dp"
         android:background="@drawable/bg"
         android:tileMode="repeat">
 

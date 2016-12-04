@@ -9,7 +9,7 @@
     android:paddingRight="0dp"
     android:paddingTop="0dp"
     android:orientation="vertical"
-    tools:context="au.com.fujitsu.walkbuddies.ViewGroupsActivity"
+    tools:context="au.com.fujitsu.walkbuddies.JoinWalkGroupActivity"
     android:background="@color/colorBackColour">
 
     <android.support.v7.widget.Toolbar
@@ -42,41 +42,10 @@
         android:paddingTop="@dimen/activity_vertical_margin">
 
         <ListView
-            android:id="@+id/walk_group_list"
+            android:id="@+id/join_group_list"
             android:layout_width="fill_parent"
             android:layout_height="wrap_content"
             android:layout_alignParentTop="true" />
 
-        <Button
-            android:id="@+id/create_wg_button"
-            style="?android:textAppearanceSmall"
-            android:textStyle="bold"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="@string/wg_create"
-            android:layout_below="@+id/walk_group_list"
-            android:layout_marginTop="10dp"
-            android:layout_marginRight="5dp"
-            android:layout_alignParentLeft="true"
-            android:layout_weight="1"
-            android:background="@color/colorPrimary"
-            android:textColor="@color/colorWhite"
-            android:onClick="navigateToCreateGroup"/>
-
-        <Button
-            android:id="@+id/join_wg_button"
-            style="?android:textAppearanceSmall"
-            android:textStyle="bold"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="@string/wg_join"
-            android:layout_below="@+id/walk_group_list"
-            android:layout_alignParentRight="true"
-            android:layout_marginTop="10dp"
-            android:layout_marginLeft="5dp"
-            android:layout_weight="1"
-            android:background="@color/colorPrimary"
-            android:textColor="@color/colorWhite"
-            android:onClick="navigateToSearchWalkGroups"/>
     </RelativeLayout>
 </LinearLayout>
