@@ -101,6 +101,13 @@ public class WalkGroup extends Item {
         this.morningTime = morningTime;
     }
 
+    public void addAdult(Parent adult) {
+        if(parentList == null) {
+            parentList = new ArrayList<Parent>();
+        }
+        parentList.add(adult);
+    }
+
     @Override
     public String toString() {
         return this.groupName + " - " + this.school;

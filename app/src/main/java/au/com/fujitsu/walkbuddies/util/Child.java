@@ -1,10 +1,12 @@
 package au.com.fujitsu.walkbuddies.util;
 
+import android.content.ClipData.Item;
+
 /**
  * Created by kamran on 19/11/16.
  */
 
-public class Child {
+public class Child extends Item {
 
     long   childID;
     String childName;
@@ -14,6 +16,7 @@ public class Child {
     Parent parent;
 
     public Child(String childName, String childAge, String childSchool, String childCharacter, Parent parent) {
+        super(childName);
         this.childName = childName;
         this.childAge = childAge;
         this.childSchool = childSchool;
@@ -22,7 +25,7 @@ public class Child {
     }
 
     public  Child(){
-
+        super("no name");
     }
 
     public long getChildID() {

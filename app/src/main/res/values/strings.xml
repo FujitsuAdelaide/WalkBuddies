@@ -53,6 +53,8 @@
     <string name="wg_create">Create</string>
     <string name="wg_join">Join</string>
     <string name="wg_search">Search</string>
+    <string name="wg_time_hint">Enter preferred walk time</string>
+    <string name="wg_zone_hint">Enter drop zone address</string>
     <string name="view_walk_groups">View Walk Groups</string>
     <string name="create_walk_group">Create Walk Group</string>
     <string name="view_walk_group_details">View Walk Group Details</string>
@@ -67,5 +69,12 @@
     <string name="title_btn_absent">Absent from next walk</string>
     <string name="google_maps_key">map key</string>
 
+    <!-- Strings for View Walk Group -->
+    <string name="wg_name_label">Walk Group Name:</string>
+    <string name="wg_school_label">Walk Group School:</string>
+    <string name="wg_admin_label">Walk Group Admin:</string>
+    <string name="wg_members_label">Walk Group Members:</string>
+    <string name="wg_adults_label">Adults:</string>
+    <string name="wg_child_label">Childs:</string>
 
 </resources>

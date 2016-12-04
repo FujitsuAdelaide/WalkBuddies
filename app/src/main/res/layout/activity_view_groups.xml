@@ -1,82 +1,83 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools"
-    android:id="@+id/activity_view_groups"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:paddingBottom="0dp"
-    android:paddingLeft="0dp"
-    android:paddingRight="0dp"
-    android:paddingTop="0dp"
-    android:orientation="vertical"
-    tools:context="au.com.fujitsu.walkbuddies.ViewGroupsActivity"
-    android:background="@color/colorBackColour">
 
-    <android.support.v7.widget.Toolbar
-        android:id="@+id/main_top_toolbar"
-        android:minHeight="?attr/actionBarSize"
-        android:layout_width="fill_parent"
-        android:layout_height="50dp"
-        android:layout_marginTop="0dp"
-        android:title="@string/view_groups"
-        android:background="@color/colorPrimary">
-
-        <ImageButton
-            android:id="@+id/toolbar_home_button"
-            android:layout_height="wrap_content"
-            android:layout_width="wrap_content"
-            android:layout_gravity="right"
-            android:background="@drawable/home_icon" />
-    </android.support.v7.widget.Toolbar>
-
-    <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
         xmlns:tools="http://schemas.android.com/tools"
-        android:id="@+id/activity_main"
-        android:layout_width="fill_parent"
-        android:layout_height="wrap_content"
-        android:gravity="center_horizontal"
+        android:id="@+id/activity_view_groups"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:paddingBottom="0dp"
+        android:paddingLeft="0dp"
+        android:paddingRight="0dp"
+        android:paddingTop="0dp"
         android:orientation="vertical"
-        android:paddingBottom="32dp"
-        android:paddingLeft="@dimen/activity_horizontal_margin"
-        android:paddingRight="@dimen/activity_horizontal_margin"
-        android:paddingTop="@dimen/activity_vertical_margin">
+        tools:context="au.com.fujitsu.walkbuddies.ViewGroupsActivity"
+        android:background="@color/colorBackColour">
 
-        <ListView
-            android:id="@+id/walk_group_list"
+        <android.support.v7.widget.Toolbar
+            android:id="@+id/main_top_toolbar"
+            android:minHeight="?attr/actionBarSize"
+            android:layout_width="fill_parent"
+            android:layout_height="50dp"
+            android:layout_marginTop="0dp"
+            android:title="@string/view_groups"
+            android:background="@color/colorPrimary">
+
+            <ImageButton
+                android:id="@+id/toolbar_home_button"
+                android:layout_height="wrap_content"
+                android:layout_width="wrap_content"
+                android:layout_gravity="right"
+                android:background="@drawable/home_icon" />
+        </android.support.v7.widget.Toolbar>
+
+        <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+            xmlns:tools="http://schemas.android.com/tools"
+            android:id="@+id/activity_main"
             android:layout_width="fill_parent"
             android:layout_height="wrap_content"
-            android:layout_alignParentTop="true" />
+            android:gravity="center_horizontal"
+            android:orientation="vertical"
+            android:paddingBottom="32dp"
+            android:paddingLeft="@dimen/activity_horizontal_margin"
+            android:paddingRight="@dimen/activity_horizontal_margin"
+            android:paddingTop="@dimen/activity_vertical_margin">
 
-        <Button
-            android:id="@+id/create_wg_button"
-            style="?android:textAppearanceSmall"
-            android:textStyle="bold"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="@string/wg_create"
-            android:layout_below="@+id/walk_group_list"
-            android:layout_marginTop="10dp"
-            android:layout_marginRight="5dp"
-            android:layout_alignParentLeft="true"
-            android:layout_weight="1"
-            android:background="@color/colorPrimary"
-            android:textColor="@color/colorWhite"
-            android:onClick="navigateToCreateGroup"/>
+            <ListView
+                android:id="@+id/walk_group_list"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:layout_alignParentTop="true" />
 
-        <Button
-            android:id="@+id/join_wg_button"
-            style="?android:textAppearanceSmall"
-            android:textStyle="bold"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="@string/wg_join"
-            android:layout_below="@+id/walk_group_list"
-            android:layout_alignParentRight="true"
-            android:layout_marginTop="10dp"
-            android:layout_marginLeft="5dp"
-            android:layout_weight="1"
-            android:background="@color/colorPrimary"
-            android:textColor="@color/colorWhite"
-            android:onClick="navigateToSearchWalkGroups"/>
-    </RelativeLayout>
-</LinearLayout>
+            <Button
+                android:id="@+id/create_wg_button"
+                style="?android:textAppearanceSmall"
+                android:textStyle="bold"
+                android:layout_width="156dp"
+                android:layout_height="wrap_content"
+                android:text="@string/wg_create"
+                android:layout_below="@+id/walk_group_list"
+                android:layout_marginTop="10dp"
+                android:layout_marginRight="5dp"
+                android:layout_alignParentLeft="true"
+                android:layout_weight="1"
+                android:background="@color/colorPrimary"
+                android:textColor="@color/colorWhite"
+                android:onClick="navigateToCreateGroup"/>
+
+            <Button
+                android:id="@+id/join_wg_button"
+                style="?android:textAppearanceSmall"
+                android:textStyle="bold"
+                android:layout_width="156dp"
+                android:layout_height="wrap_content"
+                android:text="@string/wg_join"
+                android:layout_below="@+id/walk_group_list"
+                android:layout_alignParentRight="true"
+                android:layout_marginTop="10dp"
+                android:layout_marginLeft="5dp"
+                android:layout_weight="1"
+                android:background="@color/colorPrimary"
+                android:textColor="@color/colorWhite"
+                android:onClick="navigateToSearchWalkGroups"/>
+        </RelativeLayout>
+    </LinearLayout>

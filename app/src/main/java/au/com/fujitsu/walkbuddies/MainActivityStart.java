@@ -29,23 +29,10 @@ public class MainActivityStart extends AppCompatActivity {
 
         setSupportActionBar(toolbar);
         if (getSupportActionBar() != null) {
-            getSupportActionBar().setDisplayShowHomeEnabled(true);
-            getSupportActionBar().setDisplayHomeAsUpEnabled(true);
-            getSupportActionBar().setHomeButtonEnabled(true);
-            toolbar.setNavigationIcon(R.drawable.hamb);
-            String title = "         "+toolbar.getTitle().toString();
+            String title = "                    "+toolbar.getTitle().toString();
             SpannableString s = new SpannableString(title);
             s.setSpan(new ForegroundColorSpan(Color.WHITE), 0, title.length(), Spannable.SPAN_EXCLUSIVE_EXCLUSIVE);
             getSupportActionBar().setTitle(s);
-
-            ImageButton settingsButton = (ImageButton) findViewById(R.id.toolbar_home_button);
-            settingsButton.setOnClickListener(new View.OnClickListener() {
-                @Override
-                public void onClick(View view) {
-                    Intent intent = new Intent(getBaseContext(),HomeActivity.class);
-                    startActivity(intent);
-                }
-            });
         }
     }
 

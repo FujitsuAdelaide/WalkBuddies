@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
-    android:id="@+id/activity_view_groups"
+    android:id="@+id/activity_join_w_groups"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:paddingBottom="0dp"
@@ -18,7 +18,7 @@
         android:layout_width="fill_parent"
         android:layout_height="50dp"
         android:layout_marginTop="0dp"
-        android:title="@string/view_groups"
+        android:title="@string/join_walk_group_title"
         android:background="@color/colorPrimary">
 
         <ImageButton

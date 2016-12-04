@@ -117,18 +117,23 @@ public class DataProvider {
 
         //Alex code
         othersWalkGroupList = new ArrayList<WalkGroup>();
-        WalkGroup wg1 = new WalkGroup("The Walkers","5050","Belair Primary","","");
-        Parent p1 = new Parent("Simon","0404041010","simon@email.com");
+        WalkGroup wg1 = new WalkGroup("The Walkers","Belair 5052","Belair Primary","45 - 83 Main Rd, Belair SA 5052","07:30");
+        Parent p1 = new Parent("Simon Smith","0404041010","simon_smith@email.com");
         wg1.setGroupAdmin(p1);
         ArrayList<Child> cl1 = new ArrayList<Child>();
         cl1.add(new Child("Orson","10","Belair Primary","Thomas The Traing",p1));
-        cl1.add(new Child("John","10","Belair Primary","Octonauts",p1));
-        cl1.add(new Child("Kiara","10","Belair Primary","Chuggington",p1));
+        cl1.add(new Child("John","11","Belair Primary","Octonauts",p1));
+        cl1.add(new Child("Kiara","12","Belair Primary","Chuggington",p1));
         wg1.setChildList(cl1);
+        wg1.addAdult(p1);
         othersWalkGroupList.add(wg1);
 
         parentSelf = new Parent("Alex Bulgaris","0404040808","alex_bulgaris@email.com");
-
+        parentSelf.setParentAddress("Belair 5052");
+        ArrayList<Child> cl2 = new ArrayList<Child>();
+        cl2.add(new Child("Marcus","10","Belair Primary","Ready Jet Go!",parentSelf));
+        cl2.add(new Child("Eric","11","Belair Primary","Pawpatrol",parentSelf));
+        parentSelf.setChildList(cl2);
     }
 
     public void addChildGroup(ChildGroup group){
@@ -235,6 +240,18 @@ public class DataProvider {
 
     public void joinWalkGroup(WalkGroup wg) {
         if(!walkGroupExists(wg.groupName)){
+            if (wg.getParentList() == null) {
+                wg.setParentList(new ArrayList<Parent>());
+            }
+            wg.getParentList().add(getParentSelf());
+            if(wg.getChildList() == null) {
+                wg.setChildList(new ArrayList<Child>());
+            }
+            if(getParentSelf().getChildList().size() > 0) {
+                for(Child child : getParentSelf().getChildList()) {
+                    wg.getChildList().add(child);
+                }
+            }
             walkGroupList.add(wg);
         }
     }

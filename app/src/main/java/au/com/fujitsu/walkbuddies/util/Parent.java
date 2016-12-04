@@ -1,12 +1,14 @@
 package au.com.fujitsu.walkbuddies.util;
 
+import android.content.ClipData.Item;
+
 import java.util.ArrayList;
 
 /**
  * Created by kamran on 21/11/16.
  */
 
-public class Parent {
+public class Parent extends Item {
 
     long   parentID;
     String parentName;
@@ -16,15 +18,15 @@ public class Parent {
     private ArrayList<Child> childList;
 
     public Parent(String parentName, String parentMobile, String parentEmail) {
-
+        super(parentName);
         this.parentName = parentName;
         this.parentMobile = parentMobile;
         this.parentEmail = parentEmail;
-
     }
 
     public Parent(){
       //  this.parentID = parent
+        super("no name");
     }
 
 
