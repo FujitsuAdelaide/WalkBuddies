@@ -20,14 +20,13 @@
         android:icon="@mipmap/ic_launcher_3"
         android:label="@string/app_name"
         android:supportsRtl="true"
-        android:theme="@style/AppTheme">
+        android:theme="@style/AppTheme.NoActionBar">
         <activity
             android:name=".MainActivityStart"
             android:label="@string/title_activity_main"
             android:screenOrientation="portrait">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
-
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
@@ -60,6 +59,16 @@
             android:name=".CreateWalkGroupActivity"
             android:label="@string/create_walk_group"
             android:screenOrientation="portrait" />
+        <activity
+            android:name=".ViewWalkGroupActivity"
+            android:label="@string/view_walk_group_details"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".JoinWalkGroupActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".SearchWalkGroupsActivity"
+            android:screenOrientation="portrait" />
         <!--
              The API key for Google Maps-based APIs is defined as a string resource.
              (See the file "res/values/google_maps_api.xml").
@@ -72,9 +81,6 @@
             android:name="com.google.android.geo.API_KEY"
             android:value="@string/google_maps_key" />
 
-        <activity
-            android:name=".WalkingToSchool"
-            android:label="@string/title_activity_walking_to_school"></activity>
     </application>
 
 </manifest>
